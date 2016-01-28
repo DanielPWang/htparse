@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+<!--中国知网cnki.net模板起始-->
+<!--中国知网cnki.net-期刊高级搜索 一般检索-->
+<model file="中国知网cnki.net1/ADVANCE/SEARCH_JOU.xml" key="epub.cnki.net/KNS/request/SearchHandler.ashx\?action=&amp;NaviCode(.*)DbPrefix=CJFQ" findertype="url" code="utf-8"/>
+ <!--中国知网cnki.net-报纸搜索页面-->
+<model file="中国知网cnki.net1/SEARCH_paper.xml" key="epub.cnki.net/KNS/request/SearchHandler.ashx\?action=&amp;NaviCode(.*)DbPrefix=CCND" findertype="url" code="utf-8"/>
+ <!--中国知网cnki.net-专利 高级检索跨库-->
+<model file="中国知网cnki.net1/SEARCH_zhuanlichina.xml" key="epub.cnki.net/KNS/request/SearchHandler.ashx\?action=&amp;NaviCode(.*)DbPrefix=SCOD" findertype="url" code="utf-8"/>
+<model file="中国知网cnki.net1/SEARCH_zhuanli2.xml" key="epub.cnki.net/KNS/request/SearchHandler.ashx\?action=&amp;NaviCode(.*)DbPrefix=SCOD" findertype="url" code="utf-8"/>
+ <!--中国知网cnki.net-标准 高级跨库 一般检索-->
+<model file="中国知网cnki.net1/SEARCH_biaozhunchina.xml" key="epub.cnki.net/KNS/request/SearchHandler.ashx\?action=&amp;NaviCode(.*)DbPrefix=CISD" findertype="url" code="utf-8"/>
+<model file="中国知网cnki.net1/SEARCH_biaozhunGJ.xml" key="epub.cnki.net/KNS/request/SearchHandler.ashx\?action=&amp;NaviCode(.*)DbPrefix=CISD" findertype="url" code="utf-8"/>
+<model file="中国知网cnki.net1/SEARCH_biaozhunGW.xml" key="epub.cnki.net/KNS/request/SearchHandler.ashx\?action=&amp;NaviCode(.*)DbPrefix=CISD" findertype="url" code="utf-8"/>
+<model file="中国知网cnki.net1/SEARCH_biaozhunZG.xml" key="epub.cnki.net/KNS/request/SearchHandler.ashx\?action=&amp;NaviCode(.*)DbPrefix=CISD" findertype="url" code="utf-8"/>
+ <!--中国知网cnki.net-外文文献 一般检索-->
+<model file="中国知网cnki.net1/SEARCH_wwwx.xml" key="epub.cnki.net/KNS/request/SearchHandler.ashx\?action(.*)DbPrefix=WWJD" findertype="url" code="utf-8"/>
+ <!--中国知网cnki.net-古籍搜索页面-->
+<model file="中国知网cnki.net1/SEARCH_GJ.xml" key="epub.cnki.net/KNS/request/SearchHandler.ashx\?action=&amp;NaviCode(.*)DbPrefix=GXDB" findertype="url" code="utf-8"/>
+ <!--中国知网cnki.net-年鉴搜索页面-->
+<model file="中国知网cnki.net1/SEARCH_NJ.xml" key="epub.cnki.net/KNS/request/SearchHandler.ashx\?action=&amp;NaviCode(.*)DbPrefix=CYFD" findertype="url" code="utf-8"/>
+ <!--中国知网cnki.net-高级检索期刊专辑 -->
+<model file="中国知网cnki.net1/SEARCH_zhuanjiqk.xml" key="epub.cnki.net/KNS/request/SearchHandler.ashx\?action(.*)DbPrefix=CCJD" findertype="url" code="utf-8"/>
+ <!--中国知网cnki.net-文献跨库搜索高级-->
+<model file="中国知网cnki.net1/SCDB1/SEARCH_JOU.xml" key="epub.cnki.net/KNS/request/SearchHandler.ashx\?action=&amp;NaviCode(.*)DbPrefix=SCDB" findertype="url" code="utf-8"/>
+<model file="中国知网cnki.net1/SCDB1/SEARCH_lw1.xml" key="epub.cnki.net/KNS/request/SearchHandler.ashx\?action=&amp;NaviCode(.*)DbPrefix=SCDB" findertype="url" code="utf-8"/>
+<model file="中国知网cnki.net1/SCDB1/SEARCH_lw2.xml" key="epub.cnki.net/KNS/request/SearchHandler.ashx\?action=&amp;NaviCode(.*)DbPrefix=SCDB" findertype="url" code="utf-8"/>
+<model file="中国知网cnki.net1/SCDB1/SEARCH_meetingchina.xml" key="epub.cnki.net/KNS/request/SearchHandler.ashx\?action=&amp;NaviCode(.*)DbPrefix=SCDB" findertype="url" code="utf-8"/>
+<model file="中国知网cnki.net1/SCDB1/SEARCH_meeting2.xml" key="epub.cnki.net/KNS/request/SearchHandler.ashx\?action=&amp;NaviCode(.*)DbPrefix=SCDB" findertype="url" code="utf-8"/>
+ <!--中国知网cnki.net-高级检索 博士-->
+<model file="中国知网cnki.net1/ADVANCE/SEARCH_lw1.xml" key="epub.cnki.net/KNS/request/SearchHandler.ashx\?action(.*)DbPrefix=CDFD" findertype="url" code="utf-8"/>
+ <!--中国知网cnki.net-高级检索 硕士-->
+<model file="中国知网cnki.net1/ADVANCE/SEARCH_lw2.xml" key="epub.cnki.net/KNS/request/SearchHandler.ashx\?action(.*)DbPrefix=CMFD" findertype="url" code="utf-8"/>
+ <!--中国知网cnki.net-高级检索 一般检索 博硕士-->
+<model file="中国知网cnki.net1/SEARCH_lw1.xml" key="epub.cnki.net/KNS/request/SearchHandler.ashx\?action=&amp;NaviCode(.*)DbPrefix=CDMD" findertype="url" code="utf-8"/>
+ <!--中国知网cnki.net-高级检索 一般检索 博硕士-->
+<model file="中国知网cnki.net1/SEARCH_lw2.xml" key="epub.cnki.net/KNS/request/SearchHandler.ashx\?action=&amp;NaviCode(.*)DbPrefix=CDMD" findertype="url" code="utf-8"/>
+ <!--中国知网cnki.net-高级检索 专利全部 无效地址跨库-->
+ <!--中国知网cnki.net-高级检索 中国专利-->
+<model file="中国知网cnki.net1/ADVANCE/SEARCH_zhuanlichina.xml" key="epub.cnki.net/KNS/request/SearchHandler.ashx\?action=(.*)DbPrefix=SCPD" findertype="url" code="utf-8"/>
+ <!--中国知网cnki.net-高级检索 国外专利数据库-->
+<model file="中国知网cnki.net1/ADVANCE/SEARCH_zhuanli2.xml" key="epub.cnki.net/KNS/request/SearchHandler.ashx\?action=(.*)DbPrefix=SOPD" findertype="url" code="utf-8"/>
+ <!--中国知网cnki.net-高级检索 全部标准-->
+ <!--中国知网cnki.net-高级检索 商业评论-->
+<model file="中国知网cnki.net1/ADVANCE/SEARCH_SYPL.xml" key="epub.cnki.net/KNS/request/SearchHandler.ashx\?action=(.*)DbPrefix=HBRD" findertype="url" code="utf-8"/>
+ <!--中国知网cnki.net-高级检索 行业标准-->
+<model file="中国知网cnki.net1/ADVANCE/SEARCH_biaozhunchina.xml" key="epub.cnki.net/KNS/request/SearchHandler.ashx\?action=(.*)DbPrefix=SCHF" findertype="url" code="utf-8"/>
+ <!--中国知网cnki.net-高级检索 国家标准-->
+<model file="中国知网cnki.net1/ADVANCE/SEARCH_biaozhunGJ.xml" key="epub.cnki.net/KNS/request/SearchHandler.ashx\?action=(.*)DbPrefix=SCSF" findertype="url" code="utf-8"/>
+<!--中国知网cnki.net-高级检索 国内外-->
+<model file="中国知网cnki.net1/ADVANCE/SEARCH_biaozhunGW.xml" key="epub.cnki.net/KNS/request/SearchHandler.ashx\?action=(.*)DbPrefix=SMSD" findertype="url" code="utf-8"/>
+<model file="中国知网cnki.net1/ADVANCE/SEARCH_biaozhunZG.xml" key="epub.cnki.net/KNS/request/SearchHandler.ashx\?action=(.*)DbPrefix=SMSD" findertype="url" code="utf-8"/>
+<!--中国知网cnki.net-高级检索 麻省-->
+<model file="中国知网cnki.net1/ADVANCE/SEARCH_masheng.xml" key="epub.cnki.net/KNS/request/SearchHandler.ashx\?action=&amp;NaviCode(.*)DbPrefix=MTRD" findertype="url" code="utf-8"/>
+<!--中国知网cnki.net-高级检索 学术期刊特刊-->
+<model file="中国知网cnki.net1/ADVANCE/SEARCH_xstk.xml" key="epub.cnki.net/KNS/request/SearchHandler.ashx\?action=&amp;NaviCode" findertype="url" code="utf-8"/>
+<!--中国知网cnki.net-高级检索 博士论文特刊-->
+<model file="中国知网cnki.net1/ADVANCE/SEARCH_bstk.xml" key="epub.cnki.net/KNS/request/SearchHandler.ashx\?action=&amp;NaviCode(.*)DbPrefix=CDSF" findertype="url" code="utf-8"/>
+<!--中国知网cnki.net-高级检索 硕士论文特刊-->
+<model file="中国知网cnki.net1/ADVANCE/SEARCH_sstk.xml" key="epub.cnki.net/KNS/request/SearchHandler.ashx\?action=&amp;NaviCode(.*)DbPrefix=CMSF" findertype="url" code="utf-8"/>
+<!--中国知网cnki.net-高级检索 博士2011-->
+<model file="中国知网cnki.net1/ADVANCE/SEARCH_bs2011.xml" key="epub.cnki.net/KNS/request/SearchHandler.ashx\?action=&amp;NaviCode" findertype="url" code="utf-8"/>
+<!--中国知网cnki.net-高级检索 硕士2011-->
+<model file="中国知网cnki.net1/ADVANCE/SEARCH_ss2011.xml" key="epub.cnki.net/KNS/request/SearchHandler.ashx\?action=&amp;NaviCode" findertype="url" code="utf-8"/>
+ <!--中国知网cnki.net-高级检索 会议全部  一般检索-->
+<model file="中国知网cnki.net1/SEARCH_meetingchina.xml" key="epub.cnki.net/KNS/request/SearchHandler.ashx\?action(.*)DbPrefix=CIPD" findertype="url" code="utf-8"/>
+<model file="中国知网cnki.net1/SEARCH_meeting2.xml" key="epub.cnki.net/KNS/request/SearchHandler.ashx\?action(.*)DbPrefix=CIPD" findertype="url" code="utf-8"/>
+<!--中国知网cnki.net-高级检索 中国会议-->
+<model file="中国知网cnki.net1/ADVANCE/SEARCH_meetingchina.xml" key="epub.cnki.net/KNS/request/SearchHandler.ashx\?action(.*)DbPrefix=CPFD" findertype="url" code="utf-8"/>
+<!--中国知网cnki.net-高级检索 国际会议-->
+<model file="中国知网cnki.net1/ADVANCE/SEARCH_meeting2.xml" key="epub.cnki.net/KNS/request/SearchHandler.ashx\?action(.*)DbPrefix=IPFD" findertype="url" code="utf-8"/>
+<!--中国知网cnki.net-高级检索 国内外标准-->
+<!--中国知网cnki.net-高级检索 年鉴-->
+<!--中国知网cnki.net-跨库出版物搜索页面-->
+<model file="中国知网cnki.net1/SCDB1/SEARCH_JOU.xml" key="epub.cnki.net/KNS/in/request/SearchHandler.ashx\?action(.*)DbPrefix=SCDB" findertype="url" code="utf-8"/>
+<model file="中国知网cnki.net1/SCDB1/SEARCH_lw1.xml" key="epub.cnki.net/KNS/in/request/SearchHandler.ashx\?action(.*)DbPrefix=SCDB" findertype="url" code="utf-8"/>
+<model file="中国知网cnki.net1/SCDB1/SEARCH_lw2.xml" key="epub.cnki.net/KNS/in/request/SearchHandler.ashx\?action(.*)DbPrefix=SCDB" findertype="url" code="utf-8"/>
+<model file="中国知网cnki.net1/SCDB1/SEARCH_meetingchina.xml" key="epub.cnki.net/KNS/in/request/SearchHandler.ashx\?action(.*)DbPrefix=SCDB" findertype="url" code="utf-8"/>
+<model file="中国知网cnki.net1/SCDB1/SEARCH_meeting2.xml" key="epub.cnki.net/KNS/in/request/SearchHandler.ashx\?action(.*)DbPrefix=SCDB" findertype="url" code="utf-8"/>
+<!--中国知网cnki.net-期刊出版物搜索页面-->
+<model file="中国知网cnki.net1/pub/SEARCH_JOU.xml" key="epub.cnki.net/KNS/in/request/SearchHandler.ashx\?action=(.*)DbPrefix=CJFQ" findertype="url" code="utf-8"/>
+<!--中国知网cnki.net-博士出版物搜索页面-->
+<model file="中国知网cnki.net1/pub/SEARCH_lw1.xml" key="epub.cnki.net/KNS/in/request/SearchHandler.ashx\?action=(.*)DbPrefix=CDFD" findertype="url" code="utf-8"/>
+<!--中国知网cnki.net-硕士出版物搜索页面-->
+<model file="中国知网cnki.net1/pub/SEARCH_lw2.xml" key="epub.cnki.net/KNS/in/request/SearchHandler.ashx\?action=(.*)DbPrefix=CMFD" findertype="url" code="utf-8"/>
+<!--中国知网cnki.net-会议出版物搜索页面-->
+<model file="中国知网cnki.net1/pub/SEARCH_meetingchina.xml" key="epub.cnki.net/KNS/in/request/SearchHandler.ashx\?action=(.*)DbPrefix=CPFD" findertype="url" code="utf-8"/>
+<!--中国知网cnki.net-报纸出版物搜索页面-->
+<model file="中国知网cnki.net1/pub/SEARCH_paper.xml" key="epub.cnki.net/KNS/in/request/SearchHandler.ashx\?action=(.*)DbPrefix=CCND" findertype="url" code="utf-8"/>
+<!--中国知网cnki.net-报纸出版物搜索页面-->
+<model file="中国知网cnki.net1/pub/SEARCH_NJ.xml" key="epub.cnki.net/KNS/in/request/SearchHandler.ashx\?action=(.*)DbPrefix=CYFD" findertype="url" code="utf-8"/>
+<!--中国知网cnki.net-明细页面-->
+<model file="中国知网cnki.net1/DETAIL.xml" key="www.cnki.net/KCMS/detail/detail.aspx" findertype="url" code="utf-8"/>
+<!--中国知网cnki.net-外文文献-->
+<model file="中国知网cnki.net1/DETAIL_wwwx.xml" key="scholar.cnki.net/detail/detail.aspx" findertype="url" code="utf-8"/>
+<!--中国知网cnki.net-明细 中国会议-->
+<model file="中国知网cnki.net1/DETAIL2.xml" key="www.cnki.net/KCMS/detail/detail.aspx" findertype="url" code="utf-8"/>
+<!--中国知网cnki.net-明细 国际会议-->
+<model file="中国知网cnki.net1/DETAIL3.xml" key="www.cnki.net/KCMS/detail/detail.aspx" findertype="url" code="utf-8"/>
+
+
+<!--中国知网cnki.net-明细通用与检索下载-->
+<model file="中国知网cnki.net1/KNS50_DOWNLOAD_PARENT2.xml" key="(.*).cnki.net/(.*)/docdown/pubdownload.aspx" findertype="url" code="gb2312">
+ <parent file="中国知网cnki.net1/KNS50_DOWNLOAD2.xml" key="www.cnki.net/KCMS/detail/detail.aspx" findertype="url" code="utf-8"/>
+</model>
+
+
+<!--中国知网cnki.net-明细商业评论专利麻省哈佛-->
+<model file="中国知网cnki.net1/DETAIL_dbpub.net.xml" key="dbpub.cnki.net/(.*)/dbpub/detail.aspx" findertype="url" code="utf-8"/>
+<!--中国知网cnki.net-明细国外标准-->
+<model file="中国知网cnki.net1/DETAIL_dbpub.net_bzhun.xml" key="dbpub.cnki.net/(.*)/dbpub/detail.aspx" findertype="url" code="utf-8"/>
+<!--中国知网cnki.net-明细中国标准-->
+<model file="中国知网cnki.net1/DETAIL_dbpub.net_bzhunchina.xml" key="dbpub.cnki.net/(.*)/dbpub/detail.aspx" findertype="url" code="utf-8"/>
+
+<!--中国知网cnki.net-明细古籍-->
+<model file="中国知网cnki.net1/DETAIL_dbpub.net_gj.xml" key="dbpub.cnki.net/(.*)/dbpub/detail.aspx" findertype="url" code="utf-8"/>
+
+<!--中国知网cnki.net-期刊，年鉴，会议论文，博硕士预览浏览-->
+<model file="中国知网cnki.net1/DETAIL_KREADER.xml" key="kreader.cnki.net/Kreader/CatalogViewPage.aspx\?dbCode=" findertype="url" code="utf-8"/>
+
+<!--中国知网cnki.net-报纸专用浏览-->
+<model file="中国知网cnki.net1/DETAIL_KREADER.xml" key="kreader.cnki.net/Kreader/ViewPage.aspx\?dbCode=" findertype="url" code="utf-8"/>
+
+<!--中国知网cnki.net-期刊，年鉴，会议论文，博硕士预览浏览下载-->
+<model file="中国知网cnki.net1/DOWNLOAD.xml" key="kreader.cnki.net/kreader/download.aspx" findertype="url" code="utf-8">
+<parent file="中国知网cnki.net1/DOWNLOAD_PARENT.xml" key="kreader.cnki.net/Kreader/CatalogViewPage.aspx\?dbCode" findertype="url" code="utf-8"/>	
+<!--中国知网cnki.net-报纸预览浏览下载-->
+<parent file="中国知网cnki.net1/DOWNLOAD_PARENT.xml" key="kreader.cnki.net/Kreader/ViewPage.aspx\?dbCode" findertype="url" code="utf-8"/>	
+</model> 
+<!--中国知网cnki.net模板结束-->
+
+</root>

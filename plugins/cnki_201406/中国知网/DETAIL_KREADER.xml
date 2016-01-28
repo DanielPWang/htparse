@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 中国知网-预览全文浏览 --><root datatable="article_info" textcode="UTF-8">
+
+ 
+<datalist>
+<item para="//body[position() = last()]" finder="xpath" findertype="result"/>
+</datalist>
+
+<dataitem step="1">
+
+<TYPE step="0">
+<item para="./" finder="xpath"/>
+<item findertype="result" finder="constant" para="browse"/>
+</TYPE>
+ 
+</dataitem>
+
+<url> 	
+
+
+</url>
+
+
+<!-- 此节从整个页面提取信息 -->
+<all>
+
+<!-- 摘要 英文 中国学术期刊网络出版总库-->
+<summary_en step="0">
+<item para="./" finder="xpath"/>
+<item findertype="result" finder="constant" para=""/>
+</summary_en>
+
+<doi>
+<item para="./" finder="xpath"/>
+<item findertype="result" finder="constant" para=""/>
+</doi>
+
+
+<!-- 全文快照 -->
+<qview step="0">
+<item para="./" finder="xpath"/>
+<item findertype="result" finder="constant" para=""/>
+</qview>
+
+<!-- 英语关键词 -->
+<keyword_en step="0">
+<item para="./" finder="xpath"/>
+<item findertype="result" finder="constant" para=""/>
+</keyword_en>
+
+<!-- 中文关键词中国学术期刊网络出版总库-->
+<keyword_cn step="0">
+<item para="./descendant::li[@id=key]" finder="xpath"/>
+<item findertype="result" finder="innertext" para=""/>
+<item findertype="result" finder="regex" para="关键词：(.*)"/>
+
+</keyword_cn>
+
+
+<!-- 摘要 -->
+<summary_cn step="0">
+<item para="./" finder="xpath"/>
+<item findertype="result" finder="constant" para=""/>
+</summary_cn> 
+
+
+<!-- 摘要 -->
+<summary_cn step="0">
+<item para="./" finder="xpath"/>
+<item findertype="result" finder="constant" para=""/>
+
+</summary_cn> 
+
+<!-- 摘要-->
+<summary_cn step="0">
+<item para="./" finder="xpath"/>
+<item findertype="result" finder="constant" para=""/>
+</summary_cn> 
+
+<!-- 标题 -->
+<title_cn step="0">
+<item para="./descendant::a[@class=titleClass]" finder="xpath"/>
+<item findertype="result" finder="prop" para="title"/>
+</title_cn> 
+
+<!-- 英文标题 -->
+<title_en step="0">
+<item para="./" finder="xpath"/>
+<item findertype="result" finder="constant" para=""/>
+</title_en> 
+<website_id> 	 	 	
+<item para="./head/title" finder="xpath"/>
+<item findertype="result" finder="innertext" para=""/>
+<item findertype="result" finder="regex" para="(.*)—中国知网"/>
+<item findertype="result" finder="replace" para="期刊论文在线预览|中国学术期刊网络出版总库"/>
+<item findertype="result" finder="replace" para="硕士论文在线预览|中国优秀硕士学位论文全文数据库"/>
+<item findertype="result" finder="replace" para="博士论文在线预览|中国博士学位论文全文数据库"/>
+<item findertype="result" finder="replace" para="国际会议论文在线预览|国际会议论文全文数据库"/>
+<item findertype="result" finder="replace" para="会议论文在线预览|中国重要会议论文全文数据库"/>
+<item findertype="result" finder="replace" para="报纸在线预览|中国重要报纸全文数据库"/>
+<item findertype="result" finder="replace" para="在线预览|中国年鉴网络出版总库"/>
+</website_id>
+
+<database_name>
+<item para="./head/title" finder="xpath"/>
+<item findertype="result" finder="innertext" para=""/>
+<item findertype="result" finder="regex" para="(.*)—中国知网"/>
+<item findertype="result" finder="replace" para="期刊论文在线预览|中国学术期刊网络出版总库"/>
+<item findertype="result" finder="replace" para="博士论文在线预览|中国博士学位论文全文数据库"/>
+<item findertype="result" finder="replace" para="硕士论文在线预览|中国优秀硕士学位论文全文数据库"/>
+<item findertype="result" finder="replace" para="国际会议论文在线预览|国际会议论文全文数据库"/>
+<item findertype="result" finder="replace" para="会议论文在线预览|中国重要会议论文全文数据库"/>
+<item findertype="result" finder="replace" para="报纸在线预览|中国重要报纸全文数据库"/>
+<item findertype="result" finder="replace" para="在线预览|中国年鉴网络出版总库"/>
+</database_name>
+
+
+<doc_type step="0">
+<item para="./head/title" finder="xpath"/>
+<item findertype="result" finder="innertext" para=""/>
+<item findertype="result" finder="regex" para="(.*)—中国知网"/>
+<item findertype="result" finder="replace" para="期刊论文在线预览|期刊论文"/>
+<item findertype="result" finder="replace" para="硕士论文在线预览|学位论文"/>
+<item findertype="result" finder="replace" para="博士论文在线预览|学位论文"/>
+<item findertype="result" finder="replace" para="国际会议论文在线预览|会议论文"/>
+<item findertype="result" finder="replace" para="会议论文在线预览|会议论文"/>
+<item findertype="result" finder="replace" para="报纸在线预览|报纸"/>
+<item findertype="result" finder="replace" para="在线预览|年鉴"/>
+</doc_type>
+
+
+
+<website_id>
+<item para="./descendant::a[@class=titleClass]" finder="xpath"/>
+<item findertype="result" finder="prop" para="title"/>
+</website_id>
+
+<website_id>
+<item para="./head/title" finder="xpath"/>
+<item findertype="result" finder="innertext" para=""/>
+</website_id>
+
+
+<!-- 作者单位 -->
+<author_dept step="0">
+<item para="./" finder="xpath"/>
+<item findertype="result" finder="constant" para=""/>
+</author_dept>
+
+
+
+
+<!-- 作者 -->
+<author_cn step="0">
+<item para="./" finder="xpath"/>
+<item findertype="result" finder="constant" para=""/>
+</author_cn>
+
+<!-- 作者 -->
+<author_cn step="0">
+<item para="./" finder="xpath"/>
+<item findertype="result" finder="constant" para=""/>
+</author_cn>
+
+
+<!-- 文章来源报纸名称-->
+<article_source step="0">
+<item para="./descendant::li[@id=keyName]" finder="xpath"/>
+<item findertype="result" finder="innertext" para=""/>
+<item findertype="result" finder="regex" para="报纸名称：(.*)"/>
+</article_source>
+<!-- 文章来源期刊名称-->
+<article_source step="0">
+<item para="./descendant::span[@id=labTitleInfo]" finder="xpath"/>
+<item findertype="result" finder="innertext" para=""/>
+</article_source>
+<!-- 文章来源期刊期-->
+<article_source step="0">
+<item para="./descendant::select[@id=ddlIssueSelect]/descendant::option[@selected=selected]" finder="xpath"/>
+<item findertype="result" finder="innertext" para=""/>
+</article_source>
+
+<!-- 文章来源期刊期-->
+<article_source step="0">
+<item para="./descendant::span[@id=labIssue]" finder="xpath"/>
+<item findertype="result" finder="innertext" para=""/>
+</article_source>
+
+
+
+<!-- 文章来源期刊年-->
+<article_source step="0">
+<item para="./descendant::select[@id=ddlYearSelect]/descendant::option[@selected=selected]" finder="xpath"/>
+<item findertype="result" finder="innertext" para=""/>
+</article_source>
+
+<!-- 文章来源期刊年-->
+<article_source step="0">
+<item para="./descendant::span[@id=labYear]" finder="xpath"/>
+<item findertype="result" finder="innertext" para=""/>
+</article_source>
+
+
+
+
+<!-- 基金 -->
+<fund step="0">
+<item para="./" finder="xpath"/>
+<item findertype="result" finder="constant" para=""/>
+</fund>
+
+<!-- 中国学术期刊网络出版总库 -->
+<author_en step="0">
+<item para="./" finder="xpath"/>
+<item findertype="result" finder="constant" para=""/>
+</author_en>
+
+
+
+<author_en step="0">
+<item para="./" finder="xpath"/>
+<item findertype="result" finder="constant" para=""/>
+</author_en>
+
+
+
+<!-- 分类号 -->
+<class step="0">
+<item para="./" finder="xpath"/>
+<item findertype="result" finder="constant" para=""/>
+</class>
+
+<!-- 导师 -->
+<tutor step="0">
+<item para="./" finder="xpath"/>
+<item findertype="result" finder="constant" para=""/>
+</tutor>
+
+
+<degree_awarding step="0">
+<item para="./" finder="xpath"/>
+<item findertype="result" finder="constant" para=""/>
+
+</degree_awarding>
+
+<!-- 学科专业名称 中国优秀硕士学位论文全文数据库-->
+<disciplines step="0">
+<item para="./" finder="xpath"/>
+<item findertype="result" finder="constant" para=""/>
+</disciplines>
+
+<!-- 学位年度 中国优秀硕士学位论文全文数据库-->
+<degree_year step="0">
+<item para="./" finder="xpath"/>
+<item findertype="result" finder="constant" para=""/>
+</degree_year>
+
+<!-- ISSN -->
+<issn step="0">
+<item para="./" finder="xpath"/>
+<item findertype="result" finder="constant" para=""/>
+</issn>
+
+<!-- 相似文献 -->
+<similar_article step="0">
+<item para="./" finder="xpath"/>
+<item findertype="result" finder="constant" para=""/>
+</similar_article>
+
+
+
+
+
+
+
+<!-- 会议名称 -->
+<meeting_name>
+<item para="./" finder="xpath"/>
+<item findertype="result" finder="constant" para=""/>
+</meeting_name>
+
+<!-- 会议地点 -->
+<meeting_place>
+<item para="./" finder="xpath"/>
+<item findertype="result" finder="constant" para=""/>
+</meeting_place>
+
+<!-- 会议日期 -->
+<meeting_date>
+<item para="./" finder="xpath"/>
+<item findertype="result" finder="constant" para=""/>
+</meeting_date>
+
+<!-- subject主题词 -->
+<subject_word>
+<item para="./" finder="xpath"/>
+<item findertype="result" finder="constant" para=""/>
+</subject_word>
+
+<!-- 出版社 -->
+<publisher>
+<item para="./" finder="xpath"/>
+<item findertype="result" finder="constant" para=""/>
+</publisher>
+<publisher>
+<item para="./" finder="xpath"/>
+<item findertype="result" finder="constant" para=""/>
+</publisher>
+<!-- 出版日期 -->
+<publish_date>
+<item para="./" finder="xpath"/>
+<item findertype="result" finder="constant" para=""/>
+</publish_date>
+
+
+<!-- isbn -->
+<isbn>
+<item findertype="result" finder="constant" para=""/>
+</isbn>
+
+<!-- 语种 -->
+<language>
+<item para="./" finder="xpath"/>
+<item findertype="result" finder="constant" para="CHI"/>
+</language>
+
+
+
+</all>
+
+
+
+<header>
+<session_id key="Cookie">
+<item findertype="result" finder="regex" para=".*SessionId=([^;]*).*"/>
+</session_id>
+<session_id key="Set-Cookie">
+<item findertype="result" finder="regex" para=".*SessionId=([^;]*).*"/>
+</session_id>
+</header>
+</root>

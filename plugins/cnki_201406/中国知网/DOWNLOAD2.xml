@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 中国知网 --><root datatable="article_info" textcode="UTF-8">
+<datalist>
+<item para="./body" finder="xpath" findertype="result"/>
+</datalist>
+
+<dataitem step="1">
+ 
+</dataitem>
+
+<url>
+</url>
+
+
+<!-- 此节从整个页面提取信息 -->
+<all>
+
+<TYPE step="0">
+<item para="./" finder="xpath"/>
+<item findertype="result" finder="constant" para="download"/>
+</TYPE>
+
+</all>
+
+<!-- 此节从http协议头中获取数据 -->
+<header>
+
+<session_id key="Cookie">
+<item findertype="result" finder="regex" para="ASP.NET_SessionId=([^;]*)"/>
+</session_id>
+
+</header>
+</root>

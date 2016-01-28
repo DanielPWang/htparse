@@ -1,0 +1,1 @@
+var BaseLink_AD='http://adp.cnki.net/';var BaseLink_BQSM_LocalServer='http://10.1.12.20/cjfd/bqsm';var BaseLink_REFBOOK='/refbook/';var BaseLink_NAVI='http://acad.cnki.net/kns/';var BaseLink_BQSM='http://c61.cnki.net/cjfd/bqsm';var BaseLink_CRLDENG='http://lks.cnki.net/index.html?';var BaseLink_COVER='http://c61.cnki.net/';

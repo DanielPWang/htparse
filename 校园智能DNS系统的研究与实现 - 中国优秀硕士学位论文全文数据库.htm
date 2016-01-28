@@ -1,0 +1,221 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>校园智能DNS系统的研究与实现 - 中国优秀硕士学位论文全文数据库</title>
+    <link rel="stylesheet" type="text/css" href="%E6%A0%A1%E5%9B%AD%E6%99%BA%E8%83%BDDNS%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%A0%94%E7%A9%B6%E4%B8%8E%E5%AE%9E%E7%8E%B0%20-%20%E4%B8%AD%E5%9B%BD%E4%BC%98%E7%A7%80%E7%A1%95%E5%A3%AB%E5%AD%A6%E4%BD%8D%E8%AE%BA%E6%96%87%E5%85%A8%E6%96%87%E6%95%B0%E6%8D%AE%E5%BA%93_files/Global.css">
+    <link rel="stylesheet" type="text/css" href="%E6%A0%A1%E5%9B%AD%E6%99%BA%E8%83%BDDNS%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%A0%94%E7%A9%B6%E4%B8%8E%E5%AE%9E%E7%8E%B0%20-%20%E4%B8%AD%E5%9B%BD%E4%BC%98%E7%A7%80%E7%A1%95%E5%A3%AB%E5%AD%A6%E4%BD%8D%E8%AE%BA%E6%96%87%E5%85%A8%E6%96%87%E6%95%B0%E6%8D%AE%E5%BA%93_files/detail.css"><script type="text/javascript" src="%E6%A0%A1%E5%9B%AD%E6%99%BA%E8%83%BDDNS%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%A0%94%E7%A9%B6%E4%B8%8E%E5%AE%9E%E7%8E%B0%20-%20%E4%B8%AD%E5%9B%BD%E4%BC%98%E7%A7%80%E7%A1%95%E5%A3%AB%E5%AD%A6%E4%BD%8D%E8%AE%BA%E6%96%87%E5%85%A8%E6%96%87%E6%95%B0%E6%8D%AE%E5%BA%93_files/getLink.aspx"></script><script type="text/javascript" src="%E6%A0%A1%E5%9B%AD%E6%99%BA%E8%83%BDDNS%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%A0%94%E7%A9%B6%E4%B8%8E%E5%AE%9E%E7%8E%B0%20-%20%E4%B8%AD%E5%9B%BD%E4%BC%98%E7%A7%80%E7%A1%95%E5%A3%AB%E5%AD%A6%E4%BD%8D%E8%AE%BA%E6%96%87%E5%85%A8%E6%96%87%E6%95%B0%E6%8D%AE%E5%BA%93_files/rs.js"></script><script type="text/javascript" src="%E6%A0%A1%E5%9B%AD%E6%99%BA%E8%83%BDDNS%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%A0%94%E7%A9%B6%E4%B8%8E%E5%AE%9E%E7%8E%B0%20-%20%E4%B8%AD%E5%9B%BD%E4%BC%98%E7%A7%80%E7%A1%95%E5%A3%AB%E5%AD%A6%E4%BD%8D%E8%AE%BA%E6%96%87%E5%85%A8%E6%96%87%E6%95%B0%E6%8D%AE%E5%BA%93_files/Common.js"></script><script type="text/javascript" src="%E6%A0%A1%E5%9B%AD%E6%99%BA%E8%83%BDDNS%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%A0%94%E7%A9%B6%E4%B8%8E%E5%AE%9E%E7%8E%B0%20-%20%E4%B8%AD%E5%9B%BD%E4%BC%98%E7%A7%80%E7%A1%95%E5%A3%AB%E5%AD%A6%E4%BD%8D%E8%AE%BA%E6%96%87%E5%85%A8%E6%96%87%E6%95%B0%E6%8D%AE%E5%BA%93_files/detail.js"></script><script type="text/javascript" src="%E6%A0%A1%E5%9B%AD%E6%99%BA%E8%83%BDDNS%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%A0%94%E7%A9%B6%E4%B8%8E%E5%AE%9E%E7%8E%B0%20-%20%E4%B8%AD%E5%9B%BD%E4%BC%98%E7%A7%80%E7%A1%95%E5%A3%AB%E5%AD%A6%E4%BD%8D%E8%AE%BA%E6%96%87%E5%85%A8%E6%96%87%E6%95%B0%E6%8D%AE%E5%BA%93_files/Kajax.js"></script><script type="text/javascript" src="%E6%A0%A1%E5%9B%AD%E6%99%BA%E8%83%BDDNS%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%A0%94%E7%A9%B6%E4%B8%8E%E5%AE%9E%E7%8E%B0%20-%20%E4%B8%AD%E5%9B%BD%E4%BC%98%E7%A7%80%E7%A1%95%E5%A3%AB%E5%AD%A6%E4%BD%8D%E8%AE%BA%E6%96%87%E5%85%A8%E6%96%87%E6%95%B0%E6%8D%AE%E5%BA%93_files/jquery-1.js"></script></head>
+  <body><input id="loginuserid" value="WEEvREcwSlJHSldTTGJhYkg4bFBraExFZVRHMFZtMXZ1YXNja3o0bmtXbHlid3htZnhSWHRWamh2U2FIYUM1SGxzcz0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4IQMovwHtwkF4VYPoHbKxJw!!" type="hidden"><input id="listv" value="MTMwMjJhZEppRE5hdHk1SHRETnJvdEJZZThIRWlKaG9CUVQ2enQ4U24vcnJSbzJlYg==" type="hidden"><style>#header{background:url(/kcms/detail/resource/gb/images/zwjHeadBg.png) no-repeat #0185C5;}</style>
+    <div id="header">
+      <div class="zwjnav"><span id="isWaiWang"><a href="http://www.cnki.net/">CNKI主页</a> | <a href="http://search.cnki.net/">CNKI搜索</a> | 
+                <span id="lib"></span><script type="text/javascript">
+                  GetLib('数字图书馆');
+                  function getUrl()
+                  {
+                  var stru="http://my.cnki.net/elibregister/commonRegister.aspx?returnurl="+encodeURIComponent(window.location.href);
+                  window.open(stru);
+                  }
+                </script><a href="http://service.cnki.net/">读者服务</a> | 
+                <a href="http://www.cnki.net/software/xzydq.htm">下载阅读器</a> | 
+                <a target="_blank" href="http://acad3.cnki.net/help/AssistDocument/KDN/html/main.htm"> 操作指南</a> | 
+                <a href="http://vipcard.cnki.net/ec/skwd/skwd.htm" target="_blank">购买知网卡</a> | <a href="http://my.cnki.net/CNKIRecharging/czzx.html" target="_blank">充值中心</a> | <a href="http://wap.cnki.net/jianjie.htm" target="_blank">手机版</a> | <a onclick="getUrl();" target="_blank">注册</a> | 
+              </span><span id="NaHeader_NaHeader_divlogin" class="divLogin">SH0227<a target="_parent" onclick="logout();" class="pointer">退出</a></span></div>
+      <div class="zwjImg"><b>中国优秀硕士学位论文全文数据库</b><span></span></div>
+      <div class="language">
+        <ul></ul>
+      </div>
+      <div class="zwjLogo"><img alt="中国知网" src="%E6%A0%A1%E5%9B%AD%E6%99%BA%E8%83%BDDNS%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%A0%94%E7%A9%B6%E4%B8%8E%E5%AE%9E%E7%8E%B0%20-%20%E4%B8%AD%E5%9B%BD%E4%BC%98%E7%A7%80%E7%A1%95%E5%A3%AB%E5%AD%A6%E4%BD%8D%E8%AE%BA%E6%96%87%E5%85%A8%E6%96%87%E6%95%B0%E6%8D%AE%E5%BA%93_files/zwjLogo.GIF" height="51" width="140"></div>
+    </div>
+    <iframe src="%E6%A0%A1%E5%9B%AD%E6%99%BA%E8%83%BDDNS%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%A0%94%E7%A9%B6%E4%B8%8E%E5%AE%9E%E7%8E%B0%20-%20%E4%B8%AD%E5%9B%BD%E4%BC%98%E7%A7%80%E7%A1%95%E5%A3%AB%E5%AD%A6%E4%BD%8D%E8%AE%BA%E6%96%87%E5%85%A8%E6%96%87%E6%95%B0%E6%8D%AE%E5%BA%93_files/GetADInfo.htm" scrolling="no" id="headad" style="display: block;" frameborder="0"></iframe>
+    <div class="clear"></div>
+    <div id="main">
+      <div class="mainleft" id="content">
+        <div>
+          <div id="title">
+            <h2>节点文献</h2>
+            <h1 id="spanTitle"><span id="chTitle">校园智能DNS系统的研究与实现</span></h1>
+          </div><span class="downSpanDispaly"><div id="nav">
+              <ul>
+                <li class="
+                            page
+                        "><a target="_blank" href="http://www.cnki.net/KCMS/download.aspx?filename=5gmajdUZWdjWUV0ULhVYR9GUNRWQXp1TOFEenVkb3UzLNVUa4h3N2EkYJZUVhVjRntCb51mSBNGSVlmTPp3UXpFOiFTQzkWQwQkbHNjQGZEM0p2MuJjN2ZTUsRjcGdHWwRUWaZmQxhkbxh1SwkUS4lUbwUzbHR1b&amp;dflag=downpage&amp;tablename=CMFD0911">
+                    分页下载
+                </a></li>
+                <li class="
+                                chapter
+                            "><a target="_blank" href="http://www.cnki.net/KCMS/download.aspx?filename=5gmajdUZWdjWUV0ULhVYR9GUNRWQXp1TOFEenVkb3UzLNVUa4h3N2EkYJZUVhVjRntCb51mSBNGSVlmTPp3UXpFOiFTQzkWQwQkbHNjQGZEM0p2MuJjN2ZTUsRjcGdHWwRUWaZmQxhkbxh1SwkUS4lUbwUzbHR1b&amp;dflag=catalog&amp;tablename=CMFD0911">
+                        分章下载
+                    </a></li>
+                <li class="
+                            whole
+                        "><a target="_blank" href="http://www.cnki.net/KCMS/download.aspx?filename=5gmajdUZWdjWUV0ULhVYR9GUNRWQXp1TOFEenVkb3UzLNVUa4h3N2EkYJZUVhVjRntCb51mSBNGSVlmTPp3UXpFOiFTQzkWQwQkbHNjQGZEM0p2MuJjN2ZTUsRjcGdHWwRUWaZmQxhkbxh1SwkUS4lUbwUzbHR1b&amp;dflag=nhdown&amp;tablename=CMFD0911">
+                    整本下载
+                </a></li>
+                <li class="
+                            readol
+                        "><a target="_blank" href="http://www.cnki.net/KCMS/download.aspx?filename=5gmajdUZWdjWUV0ULhVYR9GUNRWQXp1TOFEenVkb3UzLNVUa4h3N2EkYJZUVhVjRntCb51mSBNGSVlmTPp3UXpFOiFTQzkWQwQkbHNjQGZEM0p2MuJjN2ZTUsRjcGdHWwRUWaZmQxhkbxh1SwkUS4lUbwUzbHR1b&amp;dflag=readonline&amp;tablename=CMFD0911">
+                    在线阅读
+                </a></li>
+                <li class="cajv"><a target="_blank" href="http://cajviewer.cnki.net/download.html"><b>CAJViewer下载</b></a></li>
+                <li style="display: none;" id="ybyl"></li>
+                <li class="note">
+              不支持迅雷等下载工具。
+              </li>
+              </ul><span><div id="weibo"><input id="hidtitle" value="李硕--2011年10期
+          " type="hidden"><a target="_blank" class="customizebtn" onclick="
+              SubScription('2', 'WEEvREcwSlJHSldTTGJhYkg4bFBraExFZVRHMFZtMXZ1YXNja3o0bmtXbHlid3htZnhSWHRWamh2U2FIYUM1SGxzcz0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4IQMovwHtwkF4VYPoHbKxJw!!', 'CMFD0911|');
+            ">
+            免费订阅
+          </a><script type="text/javascript">
+          RenderYbylHtml();
+        </script></div></span><div class="clear"></div>
+            </div></span><div class="summary pad10">
+            <p>
+        【作者】
+          <a class="KnowledgeNetLink" target="_blank" href="http://www.cnki.net/kcms/detail/search.aspx?dbcode=CMFD&amp;sfield=au&amp;skey=%e6%9d%8e%e7%a1%95&amp;code=24861559;">李硕</a>；
+          </p>
+            <p>
+      【导师】
+      <a class="KnowledgeNetLink" target="_blank" href="http://www.cnki.net/KCMS/detail/search.aspx?dbcode=CMFD&amp;sfield=au&amp;skey=%e5%90%b4%e6%89%bf%e5%8b%87&amp;code=">吴承勇；
+        </a></p>
+            <p>
+      【作者基本信息】
+      <a class="KnowledgeNetLink" target="_blank" onclick="
+          getKns55UnitNaviLink('WEEvREcwSlJHSldTTGJhYkg4bFBraExFZVRHMFZtMXZ1YXNja3o0bmtXbHlid3htZnhSWHRWamh2U2FIYUM1SGxzcz0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4IQMovwHtwkF4VYPoHbKxJw!!','CMFD','GNMDU');
+        ">内蒙古大学</a>，
+      计算机科学与技术，
+      2011，
+      硕士</p>
+            <p>      
+      【摘要】 <span id="ChDivSummary" name="ChDivSummary">随着高校网络的迅速发展,大多数高校
+都已建立了自己的校园网。为了充分利用教育网上的资源,大多数高校都把教育网作为校园网的主要出口,但由于教育网与公网的互联带宽比较窄,导致校园网用户
+在访问公网时速度非常慢。为了解决这一问题,许多高校都接入了双链路,即同时接入校园网和公网的链路。接入双链路后,校园网访问外网的速度有所改善,但是
+公网用户访问校园网服务器仍然很慢。这是因为正常情况下校园网服务器使用的是教育网的IP地址,所有对校园网服务器的访问都要走教育网链路,因此,尽管校
+园网拥有高速的公网链路,但公网用户却只能通过有着带宽瓶颈的教育链路才能访问到校园网的资源,这也是对公网出口链路的严重浪费。因此,亟待一种投资较
+少,对原有系统改动较小,且能加快校园网访问公网速度的技术方案。本文针对当前广泛使用的多链路技术,研究了多链路的运行机制,对基于DNS多链路的智能
+解析策略进行了分析,并结合FreeBSD下的动态DNS解析和基于Nagios的流量监测技术,提出了基于FreeBSD的智能DNS解析方案。该方案
+根据用户的来源不同以及链路的状态来返回给用户服务器最优的链路IP,两条链路在正常的情况下,智能DNS根据...&nbsp;</span><span><a id="ChDivSummaryMore" onclick="MoerSummary('ChDivSummary','ChDivSummaryMore','ChDivSummaryReset')" style="">更多</a><a id="ChDivSummaryReset" onclick="ResetSummary('ChDivSummary','ChDivSummaryMore','ChDivSummaryReset')" style="display:none">还原</a></span><br></p><script type="text/javascript">
+      AbstractFilter('ChDivSummary','ChDivSummaryMore','ChDivSummaryReset');
+    </script><div class="keywords">
+    【关键词】 <span id="ChDivKeyWord" name="ChDivKeyWord"><a class="KnowledgeNetLink" target="_blank" href="http://www.cnki.net/kcms/detail/search.aspx?dbcode=CMFD&amp;sfield=kw&amp;skey=%e6%99%ba%e8%83%bdDNS">智能DNS</a>；
+      <a class="KnowledgeNetLink" target="_blank" href="http://www.cnki.net/kcms/detail/search.aspx?dbcode=CMFD&amp;sfield=kw&amp;skey=%e5%a4%9a%e9%93%be%e8%b7%af">多链路</a>；
+      <a class="KnowledgeNetLink" target="_blank" href="http://www.cnki.net/kcms/detail/search.aspx?dbcode=CMFD&amp;sfield=kw&amp;skey=BIND">BIND</a>；
+      <a class="KnowledgeNetLink" target="_blank" href="http://www.cnki.net/kcms/detail/search.aspx?dbcode=CMFD&amp;sfield=kw&amp;skey=Nagios">Nagios</a>；
+      </span><br></div>
+            <div id="divimg" style="" class="keywords">【文内图片】</div>
+            <div id="imgdiv"><a target="_blank" onclick="OpenWindowsUrl('http://image.cnki.net/detail.aspx?ref=kcms&amp;id=1011144548.nh0001&amp;uid=WEEvREcwSlJHSldTTGJhYkg4bFBraExFZVRHMFZtMXZ1YXNja3o0bmtXbHlid3htZnhSWHRWamh2U2FIYUM1SGxzcz0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4IQMovwHtwkF4VYPoHbKxJw!!')" title="点击查看图片信息" style="display:inline-block;width:180px;margin:5px;overflow:hidden;"><img src="%E6%A0%A1%E5%9B%AD%E6%99%BA%E8%83%BDDNS%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%A0%94%E7%A9%B6%E4%B8%8E%E5%AE%9E%E7%8E%B0%20-%20%E4%B8%AD%E5%9B%BD%E4%BC%98%E7%A7%80%E7%A1%95%E5%A3%AB%E5%AD%A6%E4%BD%8D%E8%AE%BA%E6%96%87%E5%85%A8%E6%96%87%E6%95%B0%E6%8D%AE%E5%BA%93_files/getimage.jpg" id="1011144548.nh0001" style="width:180px;max-height:200px;border:1px solid #ddd;"><h3 style="width:180px;height:44px;overflow:hidden;font-size:12px;font-weight:normal;text-align:center;line-height:22px;">校园网双出口方案</h3></a><a target="_blank" onclick="OpenWindowsUrl('http://image.cnki.net/detail.aspx?ref=kcms&amp;id=1011144548.nh0002&amp;uid=WEEvREcwSlJHSldTTGJhYkg4bFBraExFZVRHMFZtMXZ1YXNja3o0bmtXbHlid3htZnhSWHRWamh2U2FIYUM1SGxzcz0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4IQMovwHtwkF4VYPoHbKxJw!!')" title="点击查看图片信息" style="display:inline-block;width:180px;margin:5px;overflow:hidden;"><img src="%E6%A0%A1%E5%9B%AD%E6%99%BA%E8%83%BDDNS%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%A0%94%E7%A9%B6%E4%B8%8E%E5%AE%9E%E7%8E%B0%20-%20%E4%B8%AD%E5%9B%BD%E4%BC%98%E7%A7%80%E7%A1%95%E5%A3%AB%E5%AD%A6%E4%BD%8D%E8%AE%BA%E6%96%87%E5%85%A8%E6%96%87%E6%95%B0%E6%8D%AE%E5%BA%93_files/getimage_002.jpg" id="1011144548.nh0002" style="width:180px;max-height:200px;border:1px solid #ddd;"><h3 style="width:180px;height:44px;overflow:hidden;font-size:12px;font-weight:normal;text-align:center;line-height:22px;">ONS解决方案</h3></a><a target="_blank" onclick="OpenWindowsUrl('http://image.cnki.net/detail.aspx?ref=kcms&amp;id=1011144548.nh0003&amp;uid=WEEvREcwSlJHSldTTGJhYkg4bFBraExFZVRHMFZtMXZ1YXNja3o0bmtXbHlid3htZnhSWHRWamh2U2FIYUM1SGxzcz0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4IQMovwHtwkF4VYPoHbKxJw!!')" title="点击查看图片信息" style="display:inline-block;width:180px;margin:5px;overflow:hidden;"><img src="%E6%A0%A1%E5%9B%AD%E6%99%BA%E8%83%BDDNS%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%A0%94%E7%A9%B6%E4%B8%8E%E5%AE%9E%E7%8E%B0%20-%20%E4%B8%AD%E5%9B%BD%E4%BC%98%E7%A7%80%E7%A1%95%E5%A3%AB%E5%AD%A6%E4%BD%8D%E8%AE%BA%E6%96%87%E5%85%A8%E6%96%87%E6%95%B0%E6%8D%AE%E5%BA%93_files/getimage_003.jpg" id="1011144548.nh0003" style="width:180px;max-height:200px;border:1px solid #ddd;"><h3 style="width:180px;height:44px;overflow:hidden;font-size:12px;font-weight:normal;text-align:center;line-height:22px;">Lillkproof多链路解决方案</h3></a><a target="_blank" onclick="OpenWindowsUrl('http://image.cnki.net/detail.aspx?ref=kcms&amp;id=1011144548.nh0004&amp;uid=WEEvREcwSlJHSldTTGJhYkg4bFBraExFZVRHMFZtMXZ1YXNja3o0bmtXbHlid3htZnhSWHRWamh2U2FIYUM1SGxzcz0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4IQMovwHtwkF4VYPoHbKxJw!!')" title="点击查看图片信息" style="display:inline-block;width:180px;margin:5px;overflow:hidden;"><img src="%E6%A0%A1%E5%9B%AD%E6%99%BA%E8%83%BDDNS%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%A0%94%E7%A9%B6%E4%B8%8E%E5%AE%9E%E7%8E%B0%20-%20%E4%B8%AD%E5%9B%BD%E4%BC%98%E7%A7%80%E7%A1%95%E5%A3%AB%E5%AD%A6%E4%BD%8D%E8%AE%BA%E6%96%87%E5%85%A8%E6%96%87%E6%95%B0%E6%8D%AE%E5%BA%93_files/getimage_004.jpg" id="1011144548.nh0004" style="width:180px;max-height:200px;border:1px solid #ddd;"><h3 style="width:180px;height:44px;overflow:hidden;font-size:12px;font-weight:normal;text-align:center;line-height:22px;">DNS数据库结构</h3></a><a target="_blank" onclick="OpenWindowsUrl('http://image.cnki.net/detail.aspx?ref=kcms&amp;id=1011144548.nh0005&amp;uid=WEEvREcwSlJHSldTTGJhYkg4bFBraExFZVRHMFZtMXZ1YXNja3o0bmtXbHlid3htZnhSWHRWamh2U2FIYUM1SGxzcz0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4IQMovwHtwkF4VYPoHbKxJw!!')" title="点击查看图片信息" style="display:inline-block;width:180px;margin:5px;overflow:hidden;"><img src="%E6%A0%A1%E5%9B%AD%E6%99%BA%E8%83%BDDNS%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%A0%94%E7%A9%B6%E4%B8%8E%E5%AE%9E%E7%8E%B0%20-%20%E4%B8%AD%E5%9B%BD%E4%BC%98%E7%A7%80%E7%A1%95%E5%A3%AB%E5%AD%A6%E4%BD%8D%E8%AE%BA%E6%96%87%E5%85%A8%E6%96%87%E6%95%B0%E6%8D%AE%E5%BA%93_files/getimage_005.jpg" id="1011144548.nh0005" style="width:180px;max-height:200px;border:1px solid #ddd;"><h3 style="width:180px;height:44px;overflow:hidden;font-size:12px;font-weight:normal;text-align:center;line-height:22px;">DNS解析过程</h3></a><a target="_blank" onclick="OpenWindowsUrl('http://image.cnki.net/detail.aspx?ref=kcms&amp;id=1011144548.nh0006&amp;uid=WEEvREcwSlJHSldTTGJhYkg4bFBraExFZVRHMFZtMXZ1YXNja3o0bmtXbHlid3htZnhSWHRWamh2U2FIYUM1SGxzcz0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4IQMovwHtwkF4VYPoHbKxJw!!')" title="点击查看图片信息" style="display:inline-block;width:180px;margin:5px;overflow:hidden;"><img src="%E6%A0%A1%E5%9B%AD%E6%99%BA%E8%83%BDDNS%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%A0%94%E7%A9%B6%E4%B8%8E%E5%AE%9E%E7%8E%B0%20-%20%E4%B8%AD%E5%9B%BD%E4%BC%98%E7%A7%80%E7%A1%95%E5%A3%AB%E5%AD%A6%E4%BD%8D%E8%AE%BA%E6%96%87%E5%85%A8%E6%96%87%E6%95%B0%E6%8D%AE%E5%BA%93_files/getimage_006.jpg" id="1011144548.nh0006" style="width:180px;max-height:200px;border:1px solid #ddd;"><h3 style="width:180px;height:44px;overflow:hidden;font-size:12px;font-weight:normal;text-align:center;line-height:22px;">SNMP网络管理示意图</h3></a><a target="_blank" onclick="OpenWindowsUrl('http://image.cnki.net/detail.aspx?ref=kcms&amp;id=1011144548.nh0007&amp;uid=WEEvREcwSlJHSldTTGJhYkg4bFBraExFZVRHMFZtMXZ1YXNja3o0bmtXbHlid3htZnhSWHRWamh2U2FIYUM1SGxzcz0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4IQMovwHtwkF4VYPoHbKxJw!!')" title="点击查看图片信息" style="display:inline-block;width:180px;margin:5px;overflow:hidden;"><img src="%E6%A0%A1%E5%9B%AD%E6%99%BA%E8%83%BDDNS%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%A0%94%E7%A9%B6%E4%B8%8E%E5%AE%9E%E7%8E%B0%20-%20%E4%B8%AD%E5%9B%BD%E4%BC%98%E7%A7%80%E7%A1%95%E5%A3%AB%E5%AD%A6%E4%BD%8D%E8%AE%BA%E6%96%87%E5%85%A8%E6%96%87%E6%95%B0%E6%8D%AE%E5%BA%93_files/getimage_007.jpg" id="1011144548.nh0007" style="width:180px;max-height:200px;border:1px solid #ddd;"><h3 style="width:180px;height:44px;overflow:hidden;font-size:12px;font-weight:normal;text-align:center;line-height:22px;">链路正常，DNS解析策略Figure4.1LIllkok，ResolveStrategyofDNS</h3></a><a target="_blank" onclick="OpenWindowsUrl('http://image.cnki.net/detail.aspx?ref=kcms&amp;id=1011144548.nh0008&amp;uid=WEEvREcwSlJHSldTTGJhYkg4bFBraExFZVRHMFZtMXZ1YXNja3o0bmtXbHlid3htZnhSWHRWamh2U2FIYUM1SGxzcz0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4IQMovwHtwkF4VYPoHbKxJw!!')" title="点击查看图片信息" style="display:inline-block;width:180px;margin:5px;overflow:hidden;"><img src="%E6%A0%A1%E5%9B%AD%E6%99%BA%E8%83%BDDNS%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%A0%94%E7%A9%B6%E4%B8%8E%E5%AE%9E%E7%8E%B0%20-%20%E4%B8%AD%E5%9B%BD%E4%BC%98%E7%A7%80%E7%A1%95%E5%A3%AB%E5%AD%A6%E4%BD%8D%E8%AE%BA%E6%96%87%E5%85%A8%E6%96%87%E6%95%B0%E6%8D%AE%E5%BA%93_files/getimage_008.jpg" id="1011144548.nh0008" style="width:180px;max-height:200px;border:1px solid #ddd;"><h3 style="width:180px;height:44px;overflow:hidden;font-size:12px;font-weight:normal;text-align:center;line-height:22px;">链路故障.DNS解析策略Figure4.2OneLlnkFaihire，ResolveStrategyofDNS</h3></a><div class="zwjdown" style="margin-right:20px;"><a href="http://image.cnki.net/TurnPage.aspx?ref=kcms&amp;docid=1011144548.nh&amp;uid=WEEvREcwSlJHSldTTGJhYkg4bFBraExFZVRHMFZtMXZ1YXNja3o0bmtXbHlid3htZnhSWHRWamh2U2FIYUM1SGxzcz0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4IQMovwHtwkF4VYPoHbKxJw%21%21" target="_blank">更多图片...</a><div></div></div></div>
+            <div class="clear"></div>
+          </div>
+          <div class="blankw"></div>
+          <div class="summary01">
+            <ul class="break">
+              <li>
+                        【网络出版投稿人】 <a class="KnowledgeNetLink" target="_blank" onclick="
+                            getKns55UnitNaviLink('WEEvREcwSlJHSldTTGJhYkg4bFBraExFZVRHMFZtMXZ1YXNja3o0bmtXbHlid3htZnhSWHRWamh2U2FIYUM1SGxzcz0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4IQMovwHtwkF4VYPoHbKxJw!!','CMFD','GNMDU');                            
+                          ">内蒙古大学</a></li>
+            </ul>
+            <div class="clear"></div>
+            <ul class="break">
+              <li>
+                          【分类号】TP393.18</li>
+              <li>
+                          【被引频次】2</li>
+              <li>
+                          【下载频次】226</li>
+            </ul>
+            <div class="clear"></div>
+          </div>
+        </div>
+        <div class="nodebar">
+          <div class="zwjdown"><a target="_blank" href="http://www.cnki.net/KCMS/detail/detailall.aspx?filename=1011144548.nh&amp;dbcode=CMFD&amp;dbname=CMFD0911">
+                知网节下载
+              </a></div>
+          <div class="SnapshotSearch">
+            节点文献中：<input value="请输入检索词" size="30" onclick="EnableSnapShot(this);" maxlength="40" id="SnapshotSearchItem" type="text">&nbsp;<input value="全文快照搜索" id="SnapshotSearchButton" onclick="
+                    StartSnapShotSearch('CMFD','1011144548.nh','CMFD0911')
+                " type="button"></div>
+          <div class="clear"></div>
+          <div style="display: none;" id="divSnapshotSearchContent">
+            <div id="divSnapshotSearchText"></div><span onclick="ResetSnapShot()"></span></div>
+        </div>
+        <h2 id="MapTitle" class="Kh2">本文链接的文献网络图示:</h2>
+        <div id="MapArea">
+          <div class="MapAreaLeft" style="height: 170px">
+            <div class="ywwl">本文的引文网络</div>
+            <div class="map">
+              <div class="rjckwx" style="z-index: 101"><a target="frame1" href="http://www.cnki.net/kcms/detail/frame/list.aspx?dbcode=CMFD&amp;filename=1011144548.nh&amp;dbname=CMFD0911&amp;RefType=2&amp;vl=MTMwMjJhZEppRE5hdHk1SHRETnJvdEJZZThIRWlKaG9CUVQ2enQ4U24vcnJSbzJlYg==" id="rl2" name="rl" title="本文参考文献的参考文献。进一步反映本文研究工作的背景和依据">二级参考文献</a><span id="rc2">(53)</span></div>
+              <div class="ckwx" style="z-index: 102"><a class="ReferLinkOn" target="frame1" href="http://www.cnki.net/kcms/detail/frame/list.aspx?dbcode=CMFD&amp;filename=1011144548.nh&amp;dbname=CMFD0911&amp;RefType=1&amp;vl=MTMwMjJhZEppRE5hdHk1SHRETnJvdEJZZThIRWlKaG9CUVQ2enQ4U24vcnJSbzJlYg==" id="rl1" name="rl" title="反映本文研究工作的背景和依据">参考文献</a><span id="rc1">(20)</span></div>
+              <div class="gywx" style="z-index: 103"><a target="frame1" href="http://www.cnki.net/kcms/detail/frame/list.aspx?dbcode=CMFD&amp;filename=1011144548.nh&amp;dbname=CMFD0911&amp;RefType=5&amp;vl=MTMwMjJhZEppRE5hdHk1SHRETnJvdEJZZThIRWlKaG9CUVQ2enQ4U24vcnJSbzJlYg==" id="rl5" name="rl" title="（也称同引文献）与本文有相同参考文献的文献，与本文有共同研究背景或依据">共引文献</a><span id="rc5">(32)</span></div>
+              <div class="jdwx" style="z-index: 104" title="">节点文献</div>
+              <div class="tbywx" style="z-index: 105"><a target="frame1" href="http://www.cnki.net/kcms/detail/frame/list.aspx?dbcode=CMFD&amp;filename=1011144548.nh&amp;dbname=CMFD0911&amp;RefType=6&amp;vl=MTMwMjJhZEppRE5hdHk1SHRETnJvdEJZZThIRWlKaG9CUVQ2enQ4U24vcnJSbzJlYg==" id="rl6" name="rl" title="与本文同时被作为参考文献引用的文献，与本文共同作为进一步研究的基础">同被引文献</a><span id="rc6">(25)</span></div>
+              <div class="yzwx" style="z-index: 107"><a target="frame1" href="http://www.cnki.net/kcms/detail/frame/list.aspx?dbcode=CMFD&amp;filename=1011144548.nh&amp;dbname=CMFD0911&amp;RefType=3&amp;vl=MTMwMjJhZEppRE5hdHk1SHRETnJvdEJZZThIRWlKaG9CUVQ2enQ4U24vcnJSbzJlYg==" id="rl3" name="rl" title="引用本文的文献。本文研究工作的继续、应用、发展或评价">引证文献</a><span id="rc3">(2)</span></div>
+              <div class="rjyzwx" style="z-index: 108"><a target="frame1" href="http://www.cnki.net/kcms/detail/frame/list.aspx?dbcode=CMFD&amp;filename=1011144548.nh&amp;dbname=CMFD0911&amp;RefType=4&amp;vl=MTMwMjJhZEppRE5hdHk1SHRETnJvdEJZZThIRWlKaG9CUVQ2enQ4U24vcnJSbzJlYg==" id="rl4" name="rl" title="本文引证文献的引证文献。更进一步反映本文研究工作的继续、发展或评价">二级引证文献</a><span id="rc4">(2)</span></div>
+            </div>
+            <div class="time"><span onmouseover="TimeAxisMoveRight('AxisFrameDivLeft');" onmouseout="TimeAxisStop();" onclick="TimeAxisMoveFaster();" class="ArrowLeftDisable" title="显示前面的年份" id="ArrowLeft_AxisFrameDivLeft"></span><div style="height: 55px;" class="year" id="AxisFrameDivLeft"><div style="left: 0px; width: 560px;" class="ContentDiv" id="AxisFrameDivLeft_ContentDiv"><div class="cell"><div class="number"><a cellid="76806ec7-afe9-7411-9adc-7068604d3cfa" class="number">2</a></div><div class="Scale"></div><div class="bottomYear"><a cellid="76806ec7-afe9-7411-9adc-7068604d3cfa">1987</a></div></div><div class="cell"><div class="number"><a cellid="fb2d65ef-5581-aac8-4292-cf18104d4f37" class="number">2</a></div><div class="Scale"></div><div class="bottomYear"><a cellid="fb2d65ef-5581-aac8-4292-cf18104d4f37">1990</a></div></div><div class="cell"><div class="number"><a cellid="a2972444-86b4-a012-fbb8-df7e710c8c50" class="number">1</a></div><div class="Scale"></div><div class="bottomYear"><a cellid="a2972444-86b4-a012-fbb8-df7e710c8c50">1991</a></div></div><div class="cell"><div class="number"><a cellid="95bf5087-249d-0b7a-66a0-0012763505a6" class="number">1</a></div><div class="Scale"></div><div class="bottomYear"><a cellid="95bf5087-249d-0b7a-66a0-0012763505a6">1999</a></div></div><div class="cell"><div class="number"><a cellid="088c24c5-12e1-66d6-f8d9-9e850e912fb1" class="number">8</a></div><div class="Scale"></div><div class="bottomYear"><a cellid="088c24c5-12e1-66d6-f8d9-9e850e912fb1">2000</a></div></div><div class="cell"><div class="number"><a cellid="0f742667-72de-4515-2e18-b929dce5e432" class="number">6</a></div><div class="Scale"></div><div class="bottomYear"><a cellid="0f742667-72de-4515-2e18-b929dce5e432">2001</a></div></div><div class="cell"><div class="number"><a cellid="2171a33c-e011-9259-65e2-310387ad650d" class="number">14</a></div><div class="Scale"></div><div class="bottomYear"><a cellid="2171a33c-e011-9259-65e2-310387ad650d">2002</a></div></div><div class="cell"><div class="number"><a cellid="90533a38-5bc7-2b3d-637b-f452cdecb2b4" class="number">15</a></div><div class="Scale"></div><div class="bottomYear"><a cellid="90533a38-5bc7-2b3d-637b-f452cdecb2b4">2003</a></div></div><div class="cell"><div class="number"><a cellid="58bdae61-6f5c-951e-777c-e41e828fbb0c" class="number">6</a></div><div class="Scale"></div><div class="bottomYear"><a cellid="58bdae61-6f5c-951e-777c-e41e828fbb0c">2004</a></div></div><div class="cell"><div class="number"><a cellid="f13cac63-fdf4-a01d-1fd6-6b9d20496dea" class="number">3</a></div><div class="Scale"></div><div class="bottomYear"><a cellid="f13cac63-fdf4-a01d-1fd6-6b9d20496dea">2005</a></div></div><div class="cell"><div class="number"><a cellid="ee02a43f-3ca2-37f9-e791-6c0ff2aa4474" class="number">5</a></div><div class="Scale"></div><div class="bottomYear"><a cellid="ee02a43f-3ca2-37f9-e791-6c0ff2aa4474">2006</a></div></div><div class="cell"><div class="number"><a cellid="ee10d8be-676e-3458-d048-3b3ed0a66ba9" class="number">3</a></div><div class="Scale"></div><div class="bottomYear"><a cellid="ee10d8be-676e-3458-d048-3b3ed0a66ba9">2007</a></div></div><div class="cell"><div class="number"><a cellid="43ca7cc6-58db-5287-81af-879d5fe2e183" class="number">2</a></div><div class="Scale"></div><div class="bottomYear"><a cellid="43ca7cc6-58db-5287-81af-879d5fe2e183">2008</a></div></div><div class="cell"><div class="number"><a cellid="264a6b53-2bca-34bb-f82b-80ff85d1be6c" class="number">2</a></div><div class="Scale"></div><div class="bottomYear"><a cellid="264a6b53-2bca-34bb-f82b-80ff85d1be6c">2009</a></div></div></div></div><span onmouseover="TimeAxisMoveLeft('AxisFrameDivLeft');" onmouseout="TimeAxisStop();" onclick="TimeAxisMoveFaster()" class="ArrowRightEnable" title="显示后面的年份" id="ArrowRight_AxisFrameDivLeft"></span><div class="TimeMiddle" id="AxisFrameDivCurrent" style="height: 55px;"><div style="left: 0px; width: 40px;" class="ContentDiv" id="AxisFrameDivCurrent_ContentDiv"><div class="cell"><div class="number">0</div><div class="Scale"></div><div class="bottomYear">2011</div></div></div></div><span onmouseover="TimeAxisMoveRight('AxisFrameDivRight');" onmouseout="TimeAxisStop();" onclick="TimeAxisMoveFaster()" class="ArrowLeftDisable" title="显示前面的年份" id="ArrowLeft_AxisFrameDivRight"></span><div style="height: 55px;" class="year" id="AxisFrameDivRight"><div style="left: 0px; width: 120px;" class="ContentDiv" id="AxisFrameDivRight_ContentDiv"><div class="cell"><div class="number"><a cellid="8caaf1f8-b439-db79-3418-40681ebfc6f6" class="number">1</a></div><div class="Scale"></div><div class="bottomYear"><a cellid="8caaf1f8-b439-db79-3418-40681ebfc6f6">2012</a></div></div><div class="cell"><div class="number"><a cellid="fed4fc5b-29bc-fbef-fc1f-7ca16fd2b269" class="number">2</a></div><div class="Scale"></div><div class="bottomYear"><a cellid="fed4fc5b-29bc-fbef-fc1f-7ca16fd2b269">2013</a></div></div><div class="cell"><div class="number"><a cellid="536fe681-e294-49e7-6364-59dfed6b2c54" class="number">1</a></div><div class="Scale"></div><div class="bottomYear"><a cellid="536fe681-e294-49e7-6364-59dfed6b2c54">2014</a></div></div></div></div><span onmouseover="TimeAxisMoveLeft('AxisFrameDivRight');" onmouseout="TimeAxisStop();" onclick="TimeAxisMoveFaster()" class="ArrowRightDisable" title="显示后面的年份" id="ArrowRight_AxisFrameDivRight"></span><span style="display: none; visibility: hidden;" class="ArrowLeftEnable" alt=""></span><div class="clear"></div>
+            </div>
+          </div>
+          <div>
+            <div id="NodeValueDiv1" class="TimeHide" onmouseout="HideNodeValueDiv();" onmouseover="window.clearTimeout(window.timeout_NodeValueDiv);">
+              <ul>
+                <li><a id="NodeValueDiv1ReferType1Link" onclick="ChangeReferType('1');" title="反映本文研究工作的背景和依据">参考文献</a><span id="NodeValueDiv1ReferType1Level1"></span></li>
+                <li><a id="NodeValueDiv1ReferType2Link" onclick="ChangeReferType('2');" title="本文参考文献的参考文献。进一步反映本文研究工作的背景和依据">二级参考文献</a><span id="NodeValueDiv1ReferType2Level2"></span></li>
+              </ul>
+            </div>
+            <div id="NodeValueDiv2" class="TimeHide" onmouseout="HideNodeValueDiv();" onmouseover="window.clearTimeout(window.timeout_NodeValueDiv);">
+              <ul>
+                <li><a id="NodeValueDiv2ReferType4Link" onclick="ChangeReferType('3');" title="引用本文的文献。本文研究工作的继续、应用、发展或评价">引证文献</a><span id="NodeValueDiv2ReferType4Level1"></span></li>
+                <li><a id="NodeValueDiv2ReferType16Link" onclick="ChangeReferType('4');" title="本文引证文献的引证文献。更进一步反映本文研究工作的继续、发展或评价">二级引证文献</a><span id="NodeValueDiv2ReferType16Level2"></span></li>
+              </ul>
+            </div>
+            <div id="NodeValueDiv3" class="TimeHide" onmouseout="HideNodeValueDiv();" onmouseover="window.clearTimeout(window.timeout_NodeValueDiv);">
+              <ul>
+                <li><a id="NodeValueDiv3ReferType1Link" onclick="ChangeReferType('1');" title="反映本文研究工作的背景和依据">参考文献</a><span id="NodeValueDiv3ReferType1Level1"></span></li>
+                <li><a id="NodeValueDiv3ReferType2Link" onclick="ChangeReferType('2');" title="本文参考文献的参考文献。进一步反映本文研究工作的背景和依据">二级参考文献</a><span id="NodeValueDiv3ReferType2Level2"></span></li>
+                <li><a id="NodeValueDiv3ReferType4Link" onclick="ChangeReferType('3');" title="引用本文的文献。本文研究工作的继续、应用、发展或评价">引证文献</a><span id="NodeValueDiv3ReferType4Level1"></span></li>
+                <li><a id="NodeValueDiv3ReferType16Link" onclick="ChangeReferType('4');" title="本文引证文献的引证文献。更进一步反映本文研究工作的继续、发展或评价">二级引证文献</a><span id="NodeValueDiv3ReferType16Level2"></span></li>
+              </ul>
+            </div>
+          </div>
+        </div><script type="text/javascript">       
+        SetRefChartDataEx('CMFD','1011144548.nh','CMFD0911','2011');
+      </script><iframe style="height: 557px;" src="%E6%A0%A1%E5%9B%AD%E6%99%BA%E8%83%BDDNS%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%A0%94%E7%A9%B6%E4%B8%8E%E5%AE%9E%E7%8E%B0%20-%20%E4%B8%AD%E5%9B%BD%E4%BC%98%E7%A7%80%E7%A1%95%E5%A3%AB%E5%AD%A6%E4%BD%8D%E8%AE%BA%E6%96%87%E5%85%A8%E6%96%87%E6%95%B0%E6%8D%AE%E5%BA%93_files/list.htm" id="frame1" name="frame1" scrolling="no" frameborder="no" height="0" width="100%"></iframe><script type="text/javascript">
+              RegisterFrame('frame2','CMFD','frame/list.aspx?filename=1011144548.nh&dbcode=CMFD&dbname=CMFD0911&reftype=7');
+            
+              RegisterFrame('frame3','CMFD','frame/list.aspx?filename=1011144548.nh&dbcode=CMFD&dbname=CMFD0911&reftype=8');
+            
+            RegisterFrame('frame6','CMFD','frame/list.aspx?filename=1011144548.nh&dbcode=CMFD&dbname=CMFD0911&reftype=12');
+                        
+              RegisterFrame('frame5','CMFD','frame/list.aspx?filename=1011144548.nh&dbcode=CMFD&dbname=CMFD0911&reftype=10');             
+                          
+              RegisterFrame('frame4','CMFD','frame/list.aspx?filename=1011144548.nh&dbcode=CMFD&dbname=CMFD0911&cat=TP393.18&reftype=9');
+            </script><iframe style="height: 343px;" id="frame2" name="frame2" scrolling="no" src="%E6%A0%A1%E5%9B%AD%E6%99%BA%E8%83%BDDNS%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%A0%94%E7%A9%B6%E4%B8%8E%E5%AE%9E%E7%8E%B0%20-%20%E4%B8%AD%E5%9B%BD%E4%BC%98%E7%A7%80%E7%A1%95%E5%A3%AB%E5%AD%A6%E4%BD%8D%E8%AE%BA%E6%96%87%E5%85%A8%E6%96%87%E6%95%B0%E6%8D%AE%E5%BA%93_files/list_002.htm" frameborder="no" height="0" width="100%"></iframe> <iframe style="height: 317px;" id="frame3" name="frame3" scrolling="no" src="%E6%A0%A1%E5%9B%AD%E6%99%BA%E8%83%BDDNS%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%A0%94%E7%A9%B6%E4%B8%8E%E5%AE%9E%E7%8E%B0%20-%20%E4%B8%AD%E5%9B%BD%E4%BC%98%E7%A7%80%E7%A1%95%E5%A3%AB%E5%AD%A6%E4%BD%8D%E8%AE%BA%E6%96%87%E5%85%A8%E6%96%87%E6%95%B0%E6%8D%AE%E5%BA%93_files/list_003.htm" frameborder="no" height="0" width="100%"></iframe> <iframe style="height: 343px;" id="frame6" name="frame6" scrolling="no" src="%E6%A0%A1%E5%9B%AD%E6%99%BA%E8%83%BDDNS%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%A0%94%E7%A9%B6%E4%B8%8E%E5%AE%9E%E7%8E%B0%20-%20%E4%B8%AD%E5%9B%BD%E4%BC%98%E7%A7%80%E7%A1%95%E5%A3%AB%E5%AD%A6%E4%BD%8D%E8%AE%BA%E6%96%87%E5%85%A8%E6%96%87%E6%95%B0%E6%8D%AE%E5%BA%93_files/list_004.htm" frameborder="no" height="0" width="100%"></iframe> <iframe style="height: 98px;" id="frame5" name="frame5" scrolling="no" src="%E6%A0%A1%E5%9B%AD%E6%99%BA%E8%83%BDDNS%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%A0%94%E7%A9%B6%E4%B8%8E%E5%AE%9E%E7%8E%B0%20-%20%E4%B8%AD%E5%9B%BD%E4%BC%98%E7%A7%80%E7%A1%95%E5%A3%AB%E5%AD%A6%E4%BD%8D%E8%AE%BA%E6%96%87%E5%85%A8%E6%96%87%E6%95%B0%E6%8D%AE%E5%BA%93_files/list_005.htm" frameborder="no" height="0" width="100%"></iframe> <iframe style="height: 483px;" id="frame4" name="frame4" scrolling="no" src="%E6%A0%A1%E5%9B%AD%E6%99%BA%E8%83%BDDNS%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%A0%94%E7%A9%B6%E4%B8%8E%E5%AE%9E%E7%8E%B0%20-%20%E4%B8%AD%E5%9B%BD%E4%BC%98%E7%A7%80%E7%A1%95%E5%A3%AB%E5%AD%A6%E4%BD%8D%E8%AE%BA%E6%96%87%E5%85%A8%E6%96%87%E6%95%B0%E6%8D%AE%E5%BA%93_files/list_006.htm" frameborder="no" height="0" width="100%"></iframe> </div>
+      <div id="usersee_his" class="wx_jsframe_jiao" style="display: block;"><strong>浏览历史：</strong></div>
+      <div id="usersee_hiscontent" style="width:185px;height:auto;float:right"><ul class="listSpan"><li><a href="http://epub.cnki.net/kns/detail/detail.aspx?dbcode=cmfd&amp;dbname=cmfd0911&amp;filename=1011144548.nh">校园智能DNS系统的研究与实现</a></li></ul><span><a onclick="newdelCookie('UserSeesKcms')" href="javascript:void(0)" style="margin-left:160px;">清空</a></span></div>
+      <div id="userdown_his" class="wx_jsframe_jiao" style="display:none"><strong>下载历史：</strong></div>
+      <div id="userdowmn_hiscontent" style="width:185px;height:auto;float:right"></div>
+      <div id="ad">
+        <iframe src="%E6%A0%A1%E5%9B%AD%E6%99%BA%E8%83%BDDNS%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%A0%94%E7%A9%B6%E4%B8%8E%E5%AE%9E%E7%8E%B0%20-%20%E4%B8%AD%E5%9B%BD%E4%BC%98%E7%A7%80%E7%A1%95%E5%A3%AB%E5%AD%A6%E4%BD%8D%E8%AE%BA%E6%96%87%E5%85%A8%E6%96%87%E6%95%B0%E6%8D%AE%E5%BA%93_files/GetADInfo_002.htm" id="rightad" scrolling="no" style="display: block;" frameborder="0" height="700px" width="185px"></iframe>
+      </div>
+      <div class="clear"></div>
+    </div><script type="text/javascript">
+          newsetCookie('UserSeesKcms','');
+          newhisresult_ll();
+          BindOnClick_DownLoad();
+          newhisresult_down();
+          try{ GetImgPath();}catch(err){}
+          RegAd('headad','r002','智能DNS|多链路|BIND|Nagios|','','I139','校园智能DNS系统的研究与实现');
+          RegAd('rightad','r005','智能DNS|多链路|BIND|Nagios|','','I139','校园智能DNS系统的研究与实现');
+        </script><script charset="utf-8" src="%E6%A0%A1%E5%9B%AD%E6%99%BA%E8%83%BDDNS%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%A0%94%E7%A9%B6%E4%B8%8E%E5%AE%9E%E7%8E%B0%20-%20%E4%B8%AD%E5%9B%BD%E4%BC%98%E7%A7%80%E7%A1%95%E5%A3%AB%E5%AD%A6%E4%BD%8D%E8%AE%BA%E6%96%87%E5%85%A8%E6%96%87%E6%95%B0%E6%8D%AE%E5%BA%93_files/getimage.txt"></script><div id="footer"><span></span><a class="GAleft" href="http://www.hd315.gov.cn/beian/view.asp?bianhao=010202005012100021" target="_blank"></a><a class="GAright" href="http://www.hd315.gov.cn/beian/view.asp?bianhao=010202005012100021" target="_blank"></a><p>
+                    京ICP证040431号
+                    <a href="http://www.cnki.net/images/006.jpg">互联网出版许可证 新出网证(京)字008号</a><br>
+                        京公网安备 11010802014875 号
+                        <br>
+                            © 2014中国知网(cnki) 《中国学术期刊(光盘版)》电子杂志社有限公司
+                            <br>
+                                服务热线：400-810-9888 订卡热线：400-819-9993
+                                <br>
+                                    在线咨询：<a href="http://help.cnki.net/" target="_blank">http://help.cnki.net</a> 客服中心：<a href="http://service.cnki.net/" target="_blank">http://service.cnki.net/</a> 电子邮件：<a href="mailto:help@cnki.net" target="_blank">help@cnki.net</a></p>
+    </div><script type="text/javascript" src="%E6%A0%A1%E5%9B%AD%E6%99%BA%E8%83%BDDNS%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%A0%94%E7%A9%B6%E4%B8%8E%E5%AE%9E%E7%8E%B0%20-%20%E4%B8%AD%E5%9B%BD%E4%BC%98%E7%A7%80%E7%A1%95%E5%A3%AB%E5%AD%A6%E4%BD%8D%E8%AE%BA%E6%96%87%E5%85%A8%E6%96%87%E6%95%B0%E6%8D%AE%E5%BA%93_files/Recommend.js"></script><script charset="utf-8" src="%E6%A0%A1%E5%9B%AD%E6%99%BA%E8%83%BDDNS%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%A0%94%E7%A9%B6%E4%B8%8E%E5%AE%9E%E7%8E%B0%20-%20%E4%B8%AD%E5%9B%BD%E4%BC%98%E7%A7%80%E7%A1%95%E5%A3%AB%E5%AD%A6%E4%BD%8D%E8%AE%BA%E6%96%87%E5%85%A8%E6%96%87%E6%95%B0%E6%8D%AE%E5%BA%93_files/KRSWriteHandler.txt" id="callScriptE"></script><script type="text/javascript" src="%E6%A0%A1%E5%9B%AD%E6%99%BA%E8%83%BDDNS%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%A0%94%E7%A9%B6%E4%B8%8E%E5%AE%9E%E7%8E%B0%20-%20%E4%B8%AD%E5%9B%BD%E4%BC%98%E7%A7%80%E7%A1%95%E5%A3%AB%E5%AD%A6%E4%BD%8D%E8%AE%BA%E6%96%87%E5%85%A8%E6%96%87%E6%95%B0%E6%8D%AE%E5%BA%93_files/klib.js"></script><script type="text/javascript" src="%E6%A0%A1%E5%9B%AD%E6%99%BA%E8%83%BDDNS%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%A0%94%E7%A9%B6%E4%B8%8E%E5%AE%9E%E7%8E%B0%20-%20%E4%B8%AD%E5%9B%BD%E4%BC%98%E7%A7%80%E7%A1%95%E5%A3%AB%E5%AD%A6%E4%BD%8D%E8%AE%BA%E6%96%87%E5%85%A8%E6%96%87%E6%95%B0%E6%8D%AE%E5%BA%93_files/Timeaxis.js"></script><script>
+          SetDownLoadFlag('1');
+          GetShareWeibosRight('http://piccache.cnki.net/kcms/detail/');
+          </script><div id="common_box" class="shareDiv" onmouseover="showshare()" onmouseout="closeshare()"><div id="cli_on" class="sharehd">分享到</div><ul class="sharebd" id="sharedet"><li><a href="javascript:void(0);" onclick="ShareAction('xl')" class="xl" title="分享到新浪微博"><i></i>新浪微博</a></li><li><a href="javascript:void(0);" onclick="ShareAction('tx')" class="tx" title="分享到腾讯微博"><i></i>腾讯微博</a></li><li><a href="javascript:void(0);" onclick="ShareAction('rr')" class="rr" title="分享到人人网"><i></i>人人网</a></li><li><a href="javascript:void(0);" onclick="ShareAction('kx')" class="kx" title="分享到开心网"><i></i>开心网</a></li><li><a href="javascript:void(0);" onclick="ShareAction('db')" class="db" title="分享到豆瓣网"><i></i>豆瓣网</a></li><li><a href="javascript:void(0);" onclick="ShareAction('wy')" class="wy" title="分享到网易微博"><i></i>网易微博</a></li></ul></div>
+</body></html>

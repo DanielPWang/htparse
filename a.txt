@@ -1,0 +1,15 @@
+    <title>基于Mysql数据库的智能DNS系统的设计与实现 - 中国学术期刊网络出版总库</title>
+      <div class="zwjnav"><span id="isWaiWang"><a href="http://www.cnki.net/">CNKI主页</a> | <a href="http://search.cnki.net/">CNKI搜索</a> | 
+                </script><a href="http://service.cnki.net/">读者服务</a> | 
+                <a href="http://www.cnki.net/software/xzydq.htm">下载阅读器</a> | 
+                <a target="_blank" href="&#xA;                  http://acad3.cnki.net/help/AssistDocument/KDN/html/main.htm&#xA;                "> 操作指南</a> | 
+                <a href="http://vipcard.cnki.net/ec/skwd/skwd.htm" target="_blank">购买知网卡</a> | <a href="http://my.cnki.net/CNKIRecharging/czzx.html" target="_blank">充值中心</a> | <a href="http://wap.cnki.net/jianjie.htm" target="_blank">手机版</a> | <a onclick="getUrl();" target="_blank">注册</a> | 
+              </span><span id="NaHeader_NaHeader_divlogin" class="divLogin">SH0227<a target="_parent" onclick="logout();" class="pointer">退出</a></span></div>
+      <div class="zwjImg"><b>中国学术期刊网络出版总库</b><span></span></div>
+                <a target="_blank" href="&#xA;                            /kcms/download.aspx?filename=EJUZSpkR51EWhVzQstWWSdEdKFUYStEbMdDZitCbDVXWwE3SSVDWYZHMIt0K1R3ZBp3RMlmbpZ2cE5EeOZ3RGRWTWhFWpdnRzFTNPlkaD10LDhlVWRUY21EW0FzQIhjV242aLpWQ2xUSIZjTOlmVQVkR48CZmFUV&amp;tablename=CJFD2009"><b>CAJ下载</b></a></li>
+              <li class="&#xA;                            pdf&#xA;                        "><a target="_blank" href="&#xA;                            /kcms/download.aspx?filename=EJUZSpkR51EWhVzQstWWSdEdKFUYStEbMdDZitCbDVXWwE3SSVDWYZHMIt0K1R3ZBp3RMlmbpZ2cE5EeOZ3RGRWTWhFWpdnRzFTNPlkaD10LDhlVWRUY21EW0FzQIhjV242aLpWQ2xUSIZjTOlmVQVkR48CZmFUV&amp;tablename=CJFD2009&amp;dflag=pdfdown&#xA;                        "><b>PDF下载</b></a></li>
+              <li class="cajv"><a target="_blank" href="&#xA;                  http://cajviewer.cnki.net/download.html&#xA;                "><b>CAJViewer下载</b></a></li>
+              <li id="ybyl"></li>
+              <li class="note">不支持迅雷等下载工具。</li>
+            </ul><span><div id="weibo"><input id="hidtitle" type="hidden" value="宋国柱-计算机工程与设计-2009年24期&#xA;          "><a target="_blank" class="customizebtn" onclick="&#xA;            SubScription('2', 'WEEvREcwSlJHSldTTGJhYkg4bFBraExFZVRHMFZtMXZ1YXNja3o0bmtXbHlid3htZnhSWHRWamh2U2FIYUM1SGxzcz0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4IQMovwHtwkF4VYPoHbKxJw!!', 'CJFD2009|');&#xA;          ">
+          免费订阅

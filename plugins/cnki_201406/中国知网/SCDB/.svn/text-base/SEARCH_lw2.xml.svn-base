@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root datatable="article_info" textcode="UTF-8">
+
+<datacheck>
+
+<url>
+<item findertype="result" finder="regex" para="(SCDB)"/>
+</url>
+
+<url>
+<item findertype="result" finder="regex" para="(SCDB)"/>
+</url>
+
+<url>
+<item findertype="result" finder="regex" para="(CDMD)"/>
+<item findertype="result" finder="isnull" para=""/>
+</url>
+
+<url>
+<item findertype="result" finder="regex" para="(CIPD)"/>
+<item findertype="result" finder="isnull" para=""/>
+</url>
+
+<url>
+<item findertype="result" finder="regex" para="(CJFQ)"/>
+<item findertype="result" finder="isnull" para=""/>
+</url>
+
+<url>
+<item findertype="result" finder="regex" para="(CCND)"/>
+<item findertype="result" finder="isnull" para=""/>
+</url>
+
+<!--外文文献-->
+<url>
+<item findertype="result" finder="regex" para="(WWJD)"/>
+<item findertype="result" finder="isnull" para=""/>
+</url>
+
+<!--专利跨库-->
+<url>
+<item findertype="result" finder="regex" para="(SCOD)"/>
+<item findertype="result" finder="isnull" para=""/>
+</url>
+
+<!--标准跨库-->
+<url>
+<item findertype="result" finder="regex" para="(CISD)"/>
+<item findertype="result" finder="isnull" para=""/>
+</url>
+<html>
+
+</html>
+
+</datacheck>
+
+
+
+ 
+
+
+<datalist>
+<item para="./body" finder="xpath" findertype="result"/>
+</datalist>
+
+<dataitem step="1">
+ 
+</dataitem>
+
+<url>
+
+
+<key>
+<item findertype="result" finder="regex" para="KEYVALUE=([^&amp;]*)"/>
+</key>
+
+
+</url>
+
+
+
+<all>
+
+<TYPE step="0">
+<item para="./" finder="xpath"/>
+<item findertype="result" finder="constant" para="search"/>
+</TYPE>
+
+
+<database_name>
+<item para="./" finder="xpath"/>
+<item findertype="result" finder="constant" para="中国优秀硕士学位论文全文数据库"/>
+</database_name>
+	
+
+
+
+
+
+</all>
+
+
+<header>
+
+<session_id key="Cookie">
+<item findertype="result" finder="regex" para=".*SessionId=([^;]*);.*"/>
+</session_id>
+
+
+
+
+</header>
+</root>

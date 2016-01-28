@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root datatable="article_info" textcode="UTF-8">
+
+<datacheck>
+<url>
+
+</url>
+
+<html>
+<item para="/head/title" finder="xpath"/>
+<item findertype="result" para="(国外标准数据库)" finder="regex"/>
+<item findertype="result" para="" finder="isnull"/>
+</html>
+
+<html>
+<item para="/head/title" finder="xpath"/>
+<item findertype="result" para="(中国标准数据库)" finder="regex"/>
+<item findertype="result" para="" finder="isnull"/>
+</html>
+
+<html>
+<item para="/head/title" finder="xpath"/>
+<item findertype="result" para="(国学宝典数据库)" finder="regex"/>
+<item findertype="result" para="" finder="isnull"/>
+</html>
+</datacheck>
+
+
+<datalist>
+<item para="//body" finder="xpath" findertype="result"/>
+</datalist>
+
+<dataitem step="1">
+<TYPE step="0">
+<item para="./" finder="xpath"/>
+<item findertype="result" finder="constant" para="browse"/>
+</TYPE>
+ 
+
+</dataitem>
+
+<url>
+
+
+
+
+</url>
+
+
+
+<!-- 此节从整个页面提取信息 -->
+<all>
+
+<!-- 摘要 英文 中国学术期刊网络出版总库-->
+<summary_en step="0">
+<item para="./descendant::p[@INNERTEXT=.*【Abstract】.*]" finder="xpath"/>
+<item findertype="result" finder="innertext" para=""/>
+<item findertype="result" finder="regex" para="【Abstract】(.*)"/>
+</summary_en>
+
+<doi>
+<item para="./" finder="xpath"/>
+<item findertype="result" finder="constant" para=""/>
+</doi>
+
+
+<website_id>
+<item para="/head/title" finder="xpath"/>
+<item findertype="result" finder="innertext" para=""/>
+</website_id>
+
+<database_name>
+<item para="/head/title" finder="xpath"/>
+<item findertype="result" finder="regex" para=".*-(.*)"/>
+</database_name>
+
+
+
+<doc_type step="0">
+<item para="/head/title" finder="xpath"/>
+<item findertype="result" finder="regex" para=".*-(.*)"/>
+<item findertype="result" finder="replace" para="中国学术期刊网络出版总库|期刊论文"/>
+<item findertype="result" finder="replace" para="中国重要报纸全文数据库|报纸"/>
+<item findertype="result" finder="replace" para="中国博士学位论文全文数据库|学位论文"/>
+<item findertype="result" finder="replace" para="中国优秀硕士学位论文全文数据库|学位论文"/>
+<item findertype="result" finder="replace" para="中国重要会议论文全文数据库|会议论文"/>
+<item findertype="result" finder="replace" para="中国专利全文数据库|专利"/>
+<item findertype="result" finder="replace" para="国外专利全文数据库|专利"/>
+<item findertype="result" finder="replace" para="国家标准全文数据库|标准"/>
+<item findertype="result" finder="replace" para="中国行业标准全文数据库|标准"/>
+<item findertype="result" finder="replace" para="哈佛商业评论数据库|期刊论文"/>
+<item findertype="result" finder="replace" para="麻省理工科技创业数据库|期刊论文"/>
+</doc_type>
+
+
+
+
+<!-- 全文快照 -->
+<qview step="0">
+<item para="./" finder="xpath"/>
+<item findertype="result" finder="constant" para=""/>
+</qview>
+
+<!-- 关键词-英语中国学术期刊网络出版总库 -->
+<keyword_en step="0">
+<item para="./descendant::div[@class=summary pad10]/div[@INNERTEXT=.*【Key words】.*]" finder="xpath"/>
+<item findertype="result" finder="innertext" para=""/>
+<item findertype="result" finder="regex" para="【Key words】([^;]*)"/>
+</keyword_en>
+<!-- 关键词 英语哈佛-->
+<keyword_en step="0">
+<item para="./descendant::td[@INNERTEXT=.*【英文关键词】.*]/following-sibling::td" finder="xpath"/>
+<item findertype="result" finder="innertext" para=""/>
+</keyword_en>
+
+<!-- 关键词 英语哈佛-->
+<keyword_cn step="0">
+<item para="./descendant::td[@INNERTEXT=.*【中文关键词】.*]/following-sibling::td" finder="xpath"/>
+<item findertype="result" finder="innertext" para=""/>
+</keyword_cn>
+
+
+
+
+
+<!-- 摘要 中国专利-->
+<summary_cn step="0">
+<item para="./descendant::td[@INNERTEXT=.*【摘要】.*]/following-sibling::td" finder="xpath"/>
+<item findertype="result" finder="innertext" para=""/>
+</summary_cn> 
+
+<!-- 摘要 哈佛-->
+<summary_cn step="0">
+<item para="./descendant::script[4]" finder="xpath"/>
+<item findertype="result" finder="innertext" para=""/>
+<item findertype="result" finder="regex" para="var zwzy_value = '(.*) if \(zwzy_value.length"/>
+<item findertype="result" finder="replace" para=";|"/>
+<item findertype="result" finder="replace" para="'|"/>
+</summary_cn>
+
+<!-- 标题 -->
+<title_cn step="0">
+<item para="/head/title" finder="xpath"/>
+<item findertype="result" finder="regex" para="(.*)--.*"/>
+</title_cn> 
+
+<!-- 英文标题 -->
+<title_en step="0">
+<item para="./descendant::td[@INNERTEXT=.*【英文标准名称】.*]/following-sibling::td" finder="xpath"/>
+<item findertype="result" finder="innertext" para=""/>
+</title_en> 
+
+
+<!-- 作者单位 -->
+<author_dept step="0">
+<item para="./descendant::td[@INNERTEXT=.*【申请人】.*]/following-sibling::td" finder="xpath"/>
+<item findertype="result" finder="innertext" para=""/>
+</author_dept>
+<!-- 作者单位 中国标准-->
+<author_dept step="0">
+<item para="./descendant::td[@INNERTEXT=.*【起草单位】.*]/following-sibling::td" finder="xpath"/>
+<item findertype="result" finder="innertext" para=""/>
+</author_dept>
+<!-- 作者麻省理工科技创业数据库-->
+<author_cn step="0">
+<item para="./descendant::td[@INNERTEXT=.*【作者】.*]/following-sibling::td" finder="xpath"/>
+<item findertype="result" finder="innertext" para=""/>
+</author_cn>
+
+<!--作者 中国专利 -->
+<author_cn step="0">
+<item para="./descendant::td[@INNERTEXT=.*【发明人】.*]/following-sibling::td" finder="xpath"/>
+<item findertype="result" finder="innertext" para=""/>
+</author_cn>
+
+<!-- 作者 中国标准-->
+<author_cn step="0">
+<item para="./descendant::td[@INNERTEXT=.*【起草人】.*]/following-sibling::td" finder="xpath"/>
+<item findertype="result" finder="innertext" para=""/>
+</author_cn>
+
+<!-- 作者 哈佛-->
+<author_cn step="0">
+<item para="./descendant::td[@INNERTEXT=.*【作者中文名】.*]/following-sibling::td" finder="xpath"/>
+<item findertype="result" finder="innertext" para=""/>
+</author_cn>
+
+<!-- 文章来源 中国专利-->
+<article_source step="0">
+<item para="./descendant::td[@INNERTEXT=.*【申请人】.*]/following-sibling::td" finder="xpath"/>
+<item findertype="result" finder="innertext" para=""/>
+</article_source>
+
+<!-- 文章来源 中国标准-->
+<article_source step="0">
+<item para="./descendant::td[@INNERTEXT=.*【起草单位】.*]/following-sibling::td" finder="xpath"/>
+<item findertype="result" finder="innertext" para=""/>
+</article_source>
+
+<!-- 文章来源 哈佛-->
+<article_source step="0">
+<item para="./descendant::td[@INNERTEXT=.*【所属栏目】.*]/following-sibling::td" finder="xpath"/>
+<item findertype="result" finder="innertext" para=""/>
+</article_source>
+<article_source step="0">
+<item para="./descendant::td[@INNERTEXT=.*【年份】.*]/following-sibling::td" finder="xpath"/>
+<item findertype="result" finder="innertext" para=""/>
+</article_source>
+<article_source step="0">
+<item para="./descendant::td[@INNERTEXT=.*【期号】.*]/following-sibling::td" finder="xpath"/>
+<item findertype="result" finder="innertext" para=""/>
+</article_source>
+
+<!-- 基金 -->
+<fund step="0">
+<item para="./" finder="xpath"/>
+<item findertype="result" finder="constant" para=""/>
+</fund>
+
+<!-- 中国学术期刊网络出版总库 -->
+<author_en step="0">
+<item para="./descendant::p[@INNERTEXT=.*【Author】.*]" finder="xpath"/>
+<item findertype="result" finder="innertext" para=""/>
+<item findertype="result" finder="regex" para="【Author】(.*)"/>
+</author_en>
+
+
+
+<author_en step="0">
+<item para="./descendant::td[@INNERTEXT=.*Other&amp;nbsp;authors.*]" finder="xpath"/>
+<item findertype="result" finder="innertext"/>
+<item findertype="result" finder="regex" para="Other\sauthors:\s([^:]*)"/>
+<item findertype="result" finder="regex" para="link\(\s'AUTHOR',\s'([^\d]*)"/> 
+<item findertype="result" finder="replace" para="&lt;WORDH&gt;|"/>
+<item findertype="result" finder="replace" para="&lt;/WORDH&gt;|"/>
+</author_en>
+
+<!-- 哈佛 -->
+<author_en step="0">
+<item para="./descendant::td[@INNERTEXT=.*【作者英文名】.*]/following-sibling::td" finder="xpath"/>
+<item findertype="result" finder="innertext" para=""/>
+</author_en>
+
+
+
+<!-- 分类号 -->
+<class step="0">
+<item para="./descendant::td[@INNERTEXT=.*【主分类号】.*]/following-sibling::td" finder="xpath"/>
+<item findertype="result" finder="innertext" para=""/>
+</class>
+
+<!-- 分类号 中国标准-->
+<class step="0">
+<item para="./descendant::td[@INNERTEXT=.*【中国标准分类号】.*]/following-sibling::td" finder="xpath"/>
+<item findertype="result" finder="innertext" para=""/>
+</class>
+
+<!-- 导师 -->
+<tutor step="0">
+<item findertype="result" finder="constant" para=""/>
+</tutor>
+
+<!-- 学位授予单位 中国优秀硕士学位论文全文数据库-->
+<degree_awarding step="0">
+<item para="./descendant::div[@class=summary pad10]/p[@INNERTEXT=.*【作者基本信息】.*]" finder="xpath"/>
+<item findertype="result" finder="innertext" para=""/>
+<item findertype="result" finder="regex" para="【作者基本信息】(.*)"/>
+</degree_awarding>
+
+<!-- 学科专业名称 中国优秀硕士学位论文全文数据库-->
+<disciplines step="0">
+<item para="./descendant::div[@class=summary pad10]/p[@INNERTEXT=.*【作者基本信息】.*]" finder="xpath"/>
+<item findertype="result" finder="innertext" para=""/>
+<item findertype="result" finder="regex" para="【作者基本信息】(.*)"/>
+</disciplines>
+
+<!-- 学位年度 中国优秀硕士学位论文全文数据库-->
+<degree_year step="0">
+<item para="./descendant::div[@class=summary pad10]/p[@INNERTEXT=.*【作者基本信息】.*]" finder="xpath"/>
+<item findertype="result" finder="innertext" para=""/>
+<item findertype="result" finder="regex" para="【作者基本信息】(.*)"/>
+</degree_year>
+
+<!-- ISSN -->
+<issn step="0">
+<item para="./descendant::b[@INNERTEXT=ISSN:.*]/parent::a/parent::td/following-sibling::td[2]/child::a" finder="xpath"/>
+<item findertype="result" finder="innertext"/>
+</issn>
+
+<!-- 相似文献 -->
+<similar_article step="0">
+<item para="./" finder="xpath"/>
+<item findertype="result" finder="constant" para=""/>
+</similar_article>
+
+
+<!-- 文章唯一标识(重要)-->
+
+
+
+
+<!-- 会议名称 -->
+<meeting_name>
+<item para="./descendant::li[@INNERTEXT=.*【会议录名称】.*]" finder="xpath"/>
+<item findertype="result" finder="innertext" para=""/>
+<item findertype="result" finder="regex" para="【会议录名称】(.*)"/>
+</meeting_name>
+
+<!-- 会议地点 -->
+<meeting_place>
+<item para="./descendant::li[@INNERTEXT=.*【会议地点】.*]" finder="xpath"/>
+<item findertype="result" finder="innertext" para=""/>
+<item findertype="result" finder="regex" para="【会议地点】(.*)"/>
+</meeting_place>
+
+<!-- 会议日期 -->
+<meeting_date>
+<item para="./descendant::li[@INNERTEXT=.*【会议时间】.*]" finder="xpath"/>
+<item findertype="result" finder="innertext" para=""/>
+<item findertype="result" finder="regex" para="【会议时间】(.*)"/>
+</meeting_date>
+
+<!-- subject主题词 哈佛-->
+<subject_word>
+<item para="./descendant::td[@INNERTEXT=.*【主题分类】.*]/following-sibling::td" finder="xpath"/>
+<item findertype="result" finder="innertext" para=""/>
+</subject_word>
+
+<!-- 出版社 -->
+<publisher>
+<item para="./descendant::b[@INNERTEXT=Publisher:.*]/parent::span/parent::td/following-sibling::td[2]" finder="xpath"/>
+<item findertype="result" finder="innertext"/>
+</publisher>
+
+<!-- 出版日期 -->
+<publish_date>
+<item para="./descendant::b[@INNERTEXT=Date:.*]/parent::td/following-sibling::td" finder="xpath"/>
+<item findertype="result" finder="innertext"/>
+</publish_date>
+
+
+<!-- isbn -->
+<isbn>
+<item findertype="result" finder="constant" para=""/>
+</isbn>
+
+<!-- 语种 -->
+<language>
+<item para="./" finder="xpath"/>
+<item findertype="result" finder="constant" para="CHI"/>
+</language>
+
+
+
+</all>
+
+
+
+<header>
+<session_id key="Set-Cookie">
+<item findertype="result" finder="regex" para=".*SessionId=([^;]*).*"/>
+</session_id>
+<session_id key="Cookie">
+<item findertype="result" finder="regex" para=".*SessionId=([^;]*).*"/>
+</session_id>
+</header>
+</root>

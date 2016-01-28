@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="list_data/list.css"><script type="text/javascript" src="%E5%9F%BA%E4%BA%8EMysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E6%99%BA%E8%83%BDDNS%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0%20-%20%E4%B8%AD%E5%9B%BD%E5%AD%A6%E6%9C%AF%E6%9C%9F%E5%88%8A%E7%BD%91%E7%BB%9C%E5%87%BA%E7%89%88%E6%80%BB%E5%BA%93_files/getLink.aspx"></script><script type="text/javascript" src="%E5%9F%BA%E4%BA%8EMysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E6%99%BA%E8%83%BDDNS%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0%20-%20%E4%B8%AD%E5%9B%BD%E5%AD%A6%E6%9C%AF%E6%9C%9F%E5%88%8A%E7%BD%91%E7%BB%9C%E5%87%BA%E7%89%88%E6%80%BB%E5%BA%93_files/rs.js"></script><script type="text/javascript" src="%E5%9F%BA%E4%BA%8EMysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E6%99%BA%E8%83%BDDNS%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0%20-%20%E4%B8%AD%E5%9B%BD%E5%AD%A6%E6%9C%AF%E6%9C%9F%E5%88%8A%E7%BD%91%E7%BB%9C%E5%87%BA%E7%89%88%E6%80%BB%E5%BA%93_files/Common.js"></script><script type="text/javascript" src="list_data/refer.js"></script></head>
+  <body onload="ResezeParent()">
+    <div class="title">
+      【相关作者文献】
+      <span></span></div>
+    <div class="box">
+      <div class="boxTitle"><select id="selectlist" onchange="dropDwonListOnChange(this)"><option selected="selected" value="CJFQ">中国学术期刊网络出版总库</option>
+          <option value="CDFD">中国博士学位论文全文数据库</option>
+          <option value="CMFD">中国优秀硕士学位论文全文数据库</option>
+          <option value="CPFD">中国重要会议论文全文数据库</option>
+          <option value="IPFD">国际会议论文全文数据库</option>
+          <option value="CCND">中国重要报纸全文数据库</option>
+          <option value="CYFD">中国年鉴网络出版总库</option></select><script type="text/javascript">
+      SetSelectedOption();
+    </script></div>
+      <div class="content">
+        <table class="SplitTable" width="100%" border="0" cellpadding="0" cellspacing="1">
+          <tbody>
+            <tr class="SingleRow" bgcolor="">
+              <td width="10%"><a onclick="
+          SetCurAuthor('吴飞林')
+        "><script type="text/javascript">
+          SetCurAuthorMark('吴飞林',1);
+        </script><font class="Mark">吴飞林</font></a></td>
+              <td width="10%"><a onclick="
+          SetCurAuthor('赵存明')
+        "><script type="text/javascript">
+          SetCurAuthorMark('赵存明',2);
+        </script>赵存明</a></td>
+              <td width="10%"><a onclick="
+          SetCurAuthor('王小兵')
+        "><script type="text/javascript">
+          SetCurAuthorMark('王小兵',3);
+        </script>王小兵</a></td>
+              <td width="10%"><a onclick="
+          SetCurAuthor('熊家军')
+        "><script type="text/javascript">
+          SetCurAuthorMark('熊家军',4);
+        </script>熊家军</a></td>
+              <td width="10%"><a onclick="
+          SetCurAuthor('杨海朝')
+        "><script type="text/javascript">
+          SetCurAuthorMark('杨海朝',5);
+        </script>杨海朝</a></td>
+              <td width="10%"><a onclick="
+          SetCurAuthor('王翔')
+        "><script type="text/javascript">
+          SetCurAuthorMark('王翔',6);
+        </script>王翔</a></td>
+              <td width="10%"><a onclick="
+          SetCurAuthor('刘丹')
+        "><script type="text/javascript">
+          SetCurAuthorMark('刘丹',7);
+        </script>刘丹</a></td>
+              <td width="10%"><a onclick="
+          SetCurAuthor('李现艳')
+        "><script type="text/javascript">
+          SetCurAuthorMark('李现艳',8);
+        </script>李现艳</a></td>
+              <td width="10%"><a onclick="
+          SetCurAuthor('邓刚')
+        "><script type="text/javascript">
+          SetCurAuthorMark('邓刚',9);
+        </script>邓刚</a></td>
+              <td width="10%"><a onclick="
+          SetCurAuthor('杨宝昌')
+        "><script type="text/javascript">
+          SetCurAuthorMark('杨宝昌',10);
+        </script>杨宝昌</a></td>
+            </tr>
+            <tr class="DoubleRow" bgcolor="">
+              <td width="10%"><a onclick="
+          SetCurAuthor('李杨俊')
+        "><script type="text/javascript">
+          SetCurAuthorMark('李杨俊',11);
+        </script>李杨俊</a></td>
+              <td width="10%"><a onclick="
+          SetCurAuthor('朱兆青')
+        "><script type="text/javascript">
+          SetCurAuthorMark('朱兆青',12);
+        </script>朱兆青</a></td>
+              <td width="10%"><a onclick="
+          SetCurAuthor('谢龙飞')
+        "><script type="text/javascript">
+          SetCurAuthorMark('谢龙飞',13);
+        </script>谢龙飞</a></td>
+              <td width="10%"><a onclick="
+          SetCurAuthor('侯青')
+        "><script type="text/javascript">
+          SetCurAuthorMark('侯青',14);
+        </script>侯青</a></td>
+              <td width="10%"><a onclick="
+          SetCurAuthor('王锐')
+        "><script type="text/javascript">
+          SetCurAuthorMark('王锐',15);
+        </script>王锐</a></td>
+              <td width="10%"><a onclick="
+          SetCurAuthor('于思江')
+        "><script type="text/javascript">
+          SetCurAuthorMark('于思江',16);
+        </script>于思江</a></td>
+              <td width="10%"><a onclick="
+          SetCurAuthor('孙波')
+        "><script type="text/javascript">
+          SetCurAuthorMark('孙波',17);
+        </script>孙波</a></td>
+              <td width="10%"><a onclick="
+          SetCurAuthor('赵书俊')
+        "><script type="text/javascript">
+          SetCurAuthorMark('赵书俊',18);
+        </script>赵书俊</a></td>
+              <td width="10%"><a onclick="
+          SetCurAuthor('初元萍')
+        "><script type="text/javascript">
+          SetCurAuthorMark('初元萍',19);
+        </script>初元萍</a></td>
+              <td width="10%"><a onclick="
+          SetCurAuthor('兰旭辉')
+        "><script type="text/javascript">
+          SetCurAuthorMark('兰旭辉',20);
+        </script>兰旭辉</a></td>
+            </tr>
+            <tr class="SingleRow" bgcolor=""></tr>
+          </tbody>
+        </table>
+        <ul>
+          <li class="">
+      [1] 樊锋旭,高慧英,徐忠伟,翟琳辉,衣泰龙,张涛,吴飞林,崔春萍,徐平.&nbsp;&nbsp;<a target="_blank" href="http://www.cnki.net/kcms/detail/detail.aspx?filename=SHWU201410015&amp;dbcode=CJFQ&amp;dbname=CJFD2014&amp;v=">小鼠饲养过程中蛋白质组的整体重稳定性同位素标记</a>[J]. <a onclick="
+        getKns55NaviLink('WEEvREcwSlJHSldTTGJhYkg4bFBraExFZVRHMFZtMXZ1YXNja3o0bmtXbHlid3htZnhSWHRWamh2U2FIYUM1SGxzcz0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4IQMovwHtwkF4VYPoHbKxJw!!','CJFQ','CJFQbaseinfo','SHWU');
+      ">生物工程学报</a>.
+         <a onclick="
+            getKns55NaviLinkIssue('WEEvREcwSlJHSldTTGJhYkg4bFBraExFZVRHMFZtMXZ1YXNja3o0bmtXbHlid3htZnhSWHRWamh2U2FIYUM1SGxzcz0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4IQMovwHtwkF4VYPoHbKxJw!!','CJFQ','CJFQyearinfo','SHWU','2014','10')
+          ">2014(10)
+        </a></li>
+          <li class="
+          double
+        ">
+      [2] 代学强,刘勇,吴昊,车薇,高慧英,赛岩,吴飞林,周旭,崔春萍.&nbsp;&nbsp;<a target="_blank" href="http://www.cnki.net/kcms/detail/detail.aspx?filename=JSYX201306010&amp;dbcode=CJFQ&amp;dbname=CJFD2013&amp;v=">定量检测肝细胞生成素Cn的双抗体夹心ELISA检测方法的建立</a>[J]. <a onclick="
+        getKns55NaviLink('WEEvREcwSlJHSldTTGJhYkg4bFBraExFZVRHMFZtMXZ1YXNja3o0bmtXbHlid3htZnhSWHRWamh2U2FIYUM1SGxzcz0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4IQMovwHtwkF4VYPoHbKxJw!!','CJFQ','CJFQbaseinfo','JSYX');
+      ">军事医学</a>.
+         <a onclick="
+            getKns55NaviLinkIssue('WEEvREcwSlJHSldTTGJhYkg4bFBraExFZVRHMFZtMXZ1YXNja3o0bmtXbHlid3htZnhSWHRWamh2U2FIYUM1SGxzcz0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4IQMovwHtwkF4VYPoHbKxJw!!','CJFQ','CJFQyearinfo','JSYX','2013','06')
+          ">2013(06)
+        </a></li>
+          <li class="">
+      [3] 吴飞林,王晓艳,郎波.&nbsp;&nbsp;<a target="_blank" href="http://www.cnki.net/kcms/detail/detail.aspx?filename=JSYJ200711037&amp;dbcode=CJFQ&amp;dbname=CJFD2007&amp;v=">基于MySQL的可定制强制访问控制的研究与实现</a>[J]. <a onclick="
+        getKns55NaviLink('WEEvREcwSlJHSldTTGJhYkg4bFBraExFZVRHMFZtMXZ1YXNja3o0bmtXbHlid3htZnhSWHRWamh2U2FIYUM1SGxzcz0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4IQMovwHtwkF4VYPoHbKxJw!!','CJFQ','CJFQbaseinfo','JSYJ');
+      ">计算机应用研究</a>.
+         <a onclick="
+            getKns55NaviLinkIssue('WEEvREcwSlJHSldTTGJhYkg4bFBraExFZVRHMFZtMXZ1YXNja3o0bmtXbHlid3htZnhSWHRWamh2U2FIYUM1SGxzcz0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4IQMovwHtwkF4VYPoHbKxJw!!','CJFQ','CJFQyearinfo','JSYJ','2007','11')
+          ">2007(11)
+        </a></li>
+        </ul>
+        <div class="count" style="float:none; text-align:right;">
+          共找到 3 条
+          <span id="pager"></span><script type="text/javascript">
+            ShowPage('3','pager','Mark');
+          </script></div>
+      </div>
+    </div>
+  
+</body></html>

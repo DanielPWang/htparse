@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 中国知网 --><root datatable="article_info" textcode="UTF-8">
+
+<datalist>
+<item para="./body" finder="xpath" findertype="result"/>
+</datalist>
+
+<dataitem step="1">
+ 
+</dataitem>
+
+<datacheck>
+
+<url>
+<item para="(KREADER.CNKI.NET)" finder="regex"/>
+<item findertype="result" finder="isnull" para=""/>
+</url>
+
+<html>
+</html>
+
+</datacheck>
+
+<url>
+</url>
+
+
+<!-- 此节从整个页面提取信息 -->
+<all>
+
+<TYPE step="0">
+<item para="./" finder="xpath"/>
+<item findertype="result" finder="constant" para="download"/>
+</TYPE>
+
+</all>
+
+<!-- 此节从http协议头中获取数据 -->
+<header>
+<!-- 检索下载 数据库名称 -->
+<database_name key="Referer">
+<item findertype="result" finder="regex" para="dbPrefix=([^&amp;]*)"/>
+<item findertype="result" finder="replace" para="SCDB|中国学术期刊网络出版总库"/>
+<item findertype="result" finder="replace" para="CJFQ|中国学术期刊网络出版总库"/>
+<item findertype="result" finder="replace" para="CDMD|中国博士学位论文全文数据库"/>
+<item findertype="result" finder="replace" para="CDFD|中国博士学位论文全文数据库"/>
+<item findertype="result" finder="replace" para="CMFD|中国优秀硕士学位论文全文数据库"/>
+<item findertype="result" finder="replace" para="CPFD|中国重要会议论文全文数据库"/>
+<item findertype="result" finder="replace" para="CIPD|中国重要会议论文全文数据库"/>
+<item findertype="result" finder="replace" para="CCND|中国重要报纸全文数据库"/>
+<item findertype="result" finder="replace" para="CJSF|中国学术期刊网络出版总库_特刊"/>
+</database_name>
+<!-- 检索下载 数据库名称DbPrefix正则表达式 -->
+<database_name key="Referer">
+<item findertype="result" finder="regex" para="DbPrefix=([^&amp;]*)"/>
+<item findertype="result" finder="replace" para="SCDB|中国学术期刊网络出版总库"/>
+<item findertype="result" finder="replace" para="CJFQ|中国学术期刊网络出版总库"/>
+<item findertype="result" finder="replace" para="CDMD|中国博士学位论文全文数据库"/>
+<item findertype="result" finder="replace" para="CDFD|中国博士学位论文全文数据库"/>
+<item findertype="result" finder="replace" para="CMFD|中国优秀硕士学位论文全文数据库"/>
+<item findertype="result" finder="replace" para="CPFD|中国重要会议论文全文数据库"/>
+<item findertype="result" finder="replace" para="CIPD|中国重要会议论文全文数据库"/>
+<item findertype="result" finder="replace" para="CCND|中国重要报纸全文数据库"/>
+<item findertype="result" finder="replace" para="CJSF|中国学术期刊网络出版总库_特刊"/>
+</database_name>
+<!-- 检索下载 数据库名称dbprefix正则表达式 -->
+<database_name key="Referer">
+<item findertype="result" finder="regex" para="dbprefix=([^&amp;]*)"/>
+<item findertype="result" finder="replace" para="scdb|中国学术期刊网络出版总库"/>
+<item findertype="result" finder="replace" para="cjfq|中国学术期刊网络出版总库"/>
+<item findertype="result" finder="replace" para="cdmd|中国博士学位论文全文数据库"/>
+<item findertype="result" finder="replace" para="cdfd|中国博士学位论文全文数据库"/>
+<item findertype="result" finder="replace" para="cmfd|中国优秀硕士学位论文全文数据库"/>
+<item findertype="result" finder="replace" para="cpfd|中国重要会议论文全文数据库"/>
+<item findertype="result" finder="replace" para="cipd|中国重要会议论文全文数据库"/>
+<item findertype="result" finder="replace" para="ccnd|中国重要报纸全文数据库"/>
+<item findertype="result" finder="replace" para="cjsf|中国学术期刊网络出版总库_特刊"/>
+</database_name>
+
+<!-- 浏览下载 数据库名称 -->
+<database_name key="Referer">
+<item findertype="result" finder="regex" para="dbcode=([^&amp;]*)"/>
+<item findertype="result" finder="replace" para="CJFQ|中国学术期刊网络出版总库"/>
+<item findertype="result" finder="replace" para="CDFD|中国博士学位论文全文数据库"/>
+<item findertype="result" finder="replace" para="CMFD|中国优秀硕士学位论文全文数据库"/>
+<item findertype="result" finder="replace" para="CPFD|中国重要会议论文全文数据库"/>
+<item findertype="result" finder="replace" para="IPFD|国际会议论文全文数据库"/>
+<item findertype="result" finder="replace" para="CCND|中国重要报纸全文数据库"/>
+<item findertype="result" finder="replace" para="CJSF|中国学术期刊网络出版总库_特刊"/>
+<item findertype="result" finder="replace" para="CJFD|中国期刊全文数据库"/>
+</database_name>
+
+<!-- 浏览下载 数据库名称 dbCode正则表达式 -->
+<database_name key="Referer">
+<item findertype="result" finder="regex" para="dbCode=([^&amp;]*)"/>
+<item findertype="result" finder="replace" para="CJFD|中国期刊全文数据库"/>
+<item findertype="result" finder="replace" para="CJFQ|中国学术期刊网络出版总库"/>
+<item findertype="result" finder="replace" para="CDFD|中国博士学位论文全文数据库"/>
+<item findertype="result" finder="replace" para="CMFD|中国优秀硕士学位论文全文数据库"/>
+<item findertype="result" finder="replace" para="CPFD|中国重要会议论文全文数据库"/>
+<item findertype="result" finder="replace" para="IPFD|国际会议论文全文数据库"/>
+<item findertype="result" finder="replace" para="CCND|中国重要报纸全文数据库"/>
+<item findertype="result" finder="replace" para="CJSF|中国学术期刊网络出版总库_特刊"/>
+</database_name>
+
+<!-- 浏览下载 数据库名称 DbCode正则表达式 -->
+<database_name key="Referer">
+<item findertype="result" finder="regex" para="DbCode=([^&amp;]*)"/>
+<item findertype="result" finder="replace" para="CJFD|中国期刊全文数据库"/>
+<item findertype="result" finder="replace" para="CJFQ|中国学术期刊网络出版总库"/>
+<item findertype="result" finder="replace" para="CDFD|中国博士学位论文全文数据库"/>
+<item findertype="result" finder="replace" para="CMFD|中国优秀硕士学位论文全文数据库"/>
+<item findertype="result" finder="replace" para="CPFD|中国重要会议论文全文数据库"/>
+<item findertype="result" finder="replace" para="IPFD|国际会议论文全文数据库"/>
+<item findertype="result" finder="replace" para="CCND|中国重要报纸全文数据库"/>
+<item findertype="result" finder="replace" para="CJSF|中国学术期刊网络出版总库_特刊"/>
+</database_name>
+
+
+
+<!-- 分页和分章下载 中国博士学位论文全文数据库数据库名称 -->
+<database_name key="Referer">
+<item findertype="result" finder="regex" para="tablename=([^&amp;]*)"/>
+<item findertype="result" finder="regex" para="(CDFD)"/>
+<item findertype="result" finder="replace" para="CDFD|中国博士学位论文全文数据库"/>
+</database_name>
+
+<!-- 分页和分章下载 中国博士学位论文全文数据库数据库名称 -->
+<database_name key="Referer">
+<item findertype="result" finder="regex" para="tablename=([^&amp;]*)"/>
+<item findertype="result" finder="regex" para="(CMFD)"/>
+<item findertype="result" finder="replace" para="CMFD|中国优秀硕士学位论文全文数据库"/>
+</database_name>
+
+<website_id>
+<item para="./" finder="xpath"/>
+<item findertype="result" finder="constant" para=""/>
+</website_id>
+
+
+
+<title key="Location">
+<item findertype="result" finder="regex" para="filetitle=([^&amp;]*)" format="%s.pdf"/>
+<item findertype="result" finder="replace" para=" |"/>
+</title>
+<session_id key="Cookie">
+<item findertype="result" finder="regex" para=".*SessionId=([^;]*);.*"/>
+</session_id>
+
+</header>
+</root>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root datatable="article_info" textcode="UTF-8">
+
+<datacheck>
+
+<url>
+<item findertype="result" finder="regex" para="(CJFQ)"/>
+</url>
+
+
+
+
+
+<html>
+
+</html>
+
+</datacheck>
+
+
+
+ 
+
+
+<datalist>
+<item para="./body" finder="xpath" findertype="result"/>
+</datalist>
+
+<dataitem step="1">
+ 
+</dataitem>
+
+<url>
+
+
+<key>
+<item findertype="result" finder="regex" para="KEYVALUE=([^&amp;]*)"/>
+</key>
+
+
+</url>
+
+
+
+<all>
+
+<TYPE step="0">
+<item para="./" finder="xpath"/>
+<item findertype="result" finder="constant" para="search"/>
+</TYPE>
+
+
+<database_name>
+<item para="./" finder="xpath"/>
+<item findertype="result" finder="constant" para="中国学术期刊网络出版总库"/>
+</database_name>
+	
+
+
+
+
+
+</all>
+
+
+<header>
+
+<session_id key="Cookie">
+<item findertype="result" finder="regex" para=".*SessionId=([^;]*);.*"/>
+</session_id>
+
+
+
+
+</header>
+</root>

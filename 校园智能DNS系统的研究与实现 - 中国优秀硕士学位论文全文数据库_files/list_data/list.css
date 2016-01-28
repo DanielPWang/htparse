@@ -1,0 +1,47 @@
+/* CSS Document */
+*{ margin:0; padding:0}
+body{ font-family: Arial, Helvetica, sans-serif,"ËÎÌו"; font-size:12px;margin:0 auto}
+a{color:#002B82;cursor:pointer; text-decoration:none}
+a:hover{ color:#e60000}
+input,select{ font-size:12px}
+ul,li{ list-style:none}
+.title { padding-top:10px;}
+.title span {color:#666;}
+.tree { line-height:20px; margin-left:20px }
+.tree a{background: url(../images/sprite.png) no-repeat -195px -296px;padding-left:18px; padding-top:2px; }
+
+.box{ margin:5px 0 0px; border:#A9A9A9 solid 1px;}
+.boxTitle{padding:6px 0 0 6px;height:24px;background:url(../images/spriteR.png) repeat-x left -110px;border-bottom:#A9A9A9 solid 1px;}
+.boxTitle select{ float:left}
+.boxTitle .count{ padding-top:3px}
+.SearchTitle{padding:6px 0 5px 6px;background:url(../images/spriteR.png) repeat-x left -110px;border:#A9A9A9 solid 1px; margin-bottom:-6px; margin-top:10px;}
+
+.count{ float:left; margin-left:20px;}
+.count a{ margin-left:5px}
+.count span{ margin-left:15px;}
+.box .content{ padding:5px 15px;}
+.dbTitle{height:20px;margin:0 0 5px;padding:5px 0pt 0pt 5px;background:url(../images/spriteR.png) left -181px;  }
+.dbTitle .More{ float:right;}
+.dbName{font-size:13px;font-weight:bold;color:#000;white-space:nowrap;	float:left;background:url(../images/sprite.png) no-repeat -197px -318px ;padding-left:15px;}
+.box ul{ margin-bottom:10px;}
+.box li{ border-bottom:1px dashed #ccc; padding:5px 10px; word-break:break-all; word-wrap:break-word;}
+.box .double{background:#F7F7F7;zoom:1;}
+.SplitTable{line-height:22px;border:#96b1bc solid 1px;text-align:center;margin-bottom:10px}
+table tr.SingleRow{	background:#eaeeef}
+table tr.DoubleRow{	background:#f7f8fa}
+.Mark {color:#E60000}
+
+.zwjContent{background:#E8EFF7;}
+.zwjLeftRow{ float:left;padding:10px;color:#000;width:120px;}
+.zwjLeftRow span{color:#727272;display:block;line-height:18px}
+.zwjRightRow{float:right;padding:10px;border-left:#FFF solid 1px;background:#F1F4F8;width:82%;min-height:80px;_height:80px;line-height:20px}
+.zwjLine{clear:both;border-top:#fff solid 1px;font-size:1px;height:1px}
+.zwj_tit{FONT-WEIGHT: bold;FONT-SIZE: 12px;	COLOR: #0a5fa0}
+
+.boxex{ border-bottom:none; margin:5px 0 -5px 0;}
+.SplitDiv a{margin-right:10px; line-height:20px; cursor:pointer;white-space: nowrap;}
+
+.wait{ border:#999 solid 1px; padding:30px; margin:100px auto; width:260px; font-size:14px; text-align: center; background:url(../images/05.gif) no-repeat 30px 20px}
+.error{ border:#999 solid 1px; padding:30px; margin:100px auto; width:200px; font-size:14px; text-align: center; background:url(../images/page_white_error.png) no-repeat 40px 25px}
+
+

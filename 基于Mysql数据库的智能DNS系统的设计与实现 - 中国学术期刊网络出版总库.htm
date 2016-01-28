@@ -1,0 +1,228 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>基于Mysql数据库的智能DNS系统的设计与实现 - 中国学术期刊网络出版总库</title>
+    <link rel="stylesheet" type="text/css" href="%E5%9F%BA%E4%BA%8EMysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E6%99%BA%E8%83%BDDNS%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0%20-%20%E4%B8%AD%E5%9B%BD%E5%AD%A6%E6%9C%AF%E6%9C%9F%E5%88%8A%E7%BD%91%E7%BB%9C%E5%87%BA%E7%89%88%E6%80%BB%E5%BA%93_files/Global.css">
+    <link rel="stylesheet" type="text/css" href="%E5%9F%BA%E4%BA%8EMysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E6%99%BA%E8%83%BDDNS%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0%20-%20%E4%B8%AD%E5%9B%BD%E5%AD%A6%E6%9C%AF%E6%9C%9F%E5%88%8A%E7%BD%91%E7%BB%9C%E5%87%BA%E7%89%88%E6%80%BB%E5%BA%93_files/detail.css"><script type="text/javascript" src="%E5%9F%BA%E4%BA%8EMysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E6%99%BA%E8%83%BDDNS%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0%20-%20%E4%B8%AD%E5%9B%BD%E5%AD%A6%E6%9C%AF%E6%9C%9F%E5%88%8A%E7%BD%91%E7%BB%9C%E5%87%BA%E7%89%88%E6%80%BB%E5%BA%93_files/getLink.aspx"></script><script type="text/javascript" src="%E5%9F%BA%E4%BA%8EMysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E6%99%BA%E8%83%BDDNS%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0%20-%20%E4%B8%AD%E5%9B%BD%E5%AD%A6%E6%9C%AF%E6%9C%9F%E5%88%8A%E7%BD%91%E7%BB%9C%E5%87%BA%E7%89%88%E6%80%BB%E5%BA%93_files/rs.js"></script><script type="text/javascript" src="%E5%9F%BA%E4%BA%8EMysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E6%99%BA%E8%83%BDDNS%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0%20-%20%E4%B8%AD%E5%9B%BD%E5%AD%A6%E6%9C%AF%E6%9C%9F%E5%88%8A%E7%BD%91%E7%BB%9C%E5%87%BA%E7%89%88%E6%80%BB%E5%BA%93_files/Common.js"></script><script type="text/javascript" src="%E5%9F%BA%E4%BA%8EMysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E6%99%BA%E8%83%BDDNS%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0%20-%20%E4%B8%AD%E5%9B%BD%E5%AD%A6%E6%9C%AF%E6%9C%9F%E5%88%8A%E7%BD%91%E7%BB%9C%E5%87%BA%E7%89%88%E6%80%BB%E5%BA%93_files/detail.js"></script><script type="text/javascript" src="%E5%9F%BA%E4%BA%8EMysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E6%99%BA%E8%83%BDDNS%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0%20-%20%E4%B8%AD%E5%9B%BD%E5%AD%A6%E6%9C%AF%E6%9C%9F%E5%88%8A%E7%BD%91%E7%BB%9C%E5%87%BA%E7%89%88%E6%80%BB%E5%BA%93_files/Kajax.js"></script><script type="text/javascript" src="%E5%9F%BA%E4%BA%8EMysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E6%99%BA%E8%83%BDDNS%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0%20-%20%E4%B8%AD%E5%9B%BD%E5%AD%A6%E6%9C%AF%E6%9C%9F%E5%88%8A%E7%BD%91%E7%BB%9C%E5%87%BA%E7%89%88%E6%80%BB%E5%BA%93_files/jquery-1.js"></script></head>
+  <body><input id="loginuserid" value="WEEvREcwSlJHSldTTGJhYkg4bFBraExFZVRHMFZtMXZ1YXNja3o0bmtXbHlid3htZnhSWHRWamh2U2FIYUM1SGxzcz0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4IQMovwHtwkF4VYPoHbKxJw!!" type="hidden"><input id="listv" value="MTAxMTJyUm8yZWJlVkppZk5mOXo3UkpLV3JZOUZiZWtMREhvNW9CUVQ2enQ4U24vcg==" type="hidden"><style>#header{background:url(/kcms/detail/resource/gb/images/zwjHeadBg.png) no-repeat #0185C5;}</style>
+    <div id="header">
+      <div class="zwjnav"><span id="isWaiWang"><a href="http://www.cnki.net/">CNKI主页</a> | <a href="http://search.cnki.net/">CNKI搜索</a> | 
+                <span id="lib"></span><script type="text/javascript">
+                  GetLib('数字图书馆');
+                  function getUrl()
+                  {
+                  var stru="http://my.cnki.net/elibregister/commonRegister.aspx?returnurl="+encodeURIComponent(window.location.href);
+                  window.open(stru);
+                  }
+                </script><a href="http://service.cnki.net/">读者服务</a> | 
+                <a href="http://www.cnki.net/software/xzydq.htm">下载阅读器</a> | 
+                <a target="_blank" href="http://acad3.cnki.net/help/AssistDocument/KDN/html/main.htm"> 操作指南</a> | 
+                <a href="http://vipcard.cnki.net/ec/skwd/skwd.htm" target="_blank">购买知网卡</a> | <a href="http://my.cnki.net/CNKIRecharging/czzx.html" target="_blank">充值中心</a> | <a href="http://wap.cnki.net/jianjie.htm" target="_blank">手机版</a> | <a onclick="getUrl();" target="_blank">注册</a> | 
+              </span><span id="NaHeader_NaHeader_divlogin" class="divLogin">SH0227<a target="_parent" onclick="logout();" class="pointer">退出</a></span></div>
+      <div class="zwjImg"><b>中国学术期刊网络出版总库</b><span></span></div>
+      <div class="language">
+        <ul></ul>
+      </div>
+      <div class="zwjLogo"><img alt="中国知网" src="%E5%9F%BA%E4%BA%8EMysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E6%99%BA%E8%83%BDDNS%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0%20-%20%E4%B8%AD%E5%9B%BD%E5%AD%A6%E6%9C%AF%E6%9C%9F%E5%88%8A%E7%BD%91%E7%BB%9C%E5%87%BA%E7%89%88%E6%80%BB%E5%BA%93_files/zwjLogo.GIF" height="51" width="140"></div>
+    </div>
+    <iframe src="%E5%9F%BA%E4%BA%8EMysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E6%99%BA%E8%83%BDDNS%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0%20-%20%E4%B8%AD%E5%9B%BD%E5%AD%A6%E6%9C%AF%E6%9C%9F%E5%88%8A%E7%BD%91%E7%BB%9C%E5%87%BA%E7%89%88%E6%80%BB%E5%BA%93_files/GetADInfo.htm" scrolling="no" id="headad" style="display: block;" frameborder="0"></iframe>
+    <div class="clear"></div>
+    <div id="main">
+      <div class="mainleft" id="content">
+        <div>
+          <div id="title">
+            <h2>节点文献</h2>
+            <h1 id="spanTitle"><span id="chTitle">基于Mysql数据库的智能DNS系统的设计与实现</span></h1>
+          </div>
+          <div id="QK_nav">
+            <ul>
+              <li class="
+                            cajNew
+                        ">
+                推荐
+                <a target="_blank" href="http://www.cnki.net/kcms/download.aspx?filename=EJUZSpkR51EWhVzQstWWSdEdKFUYStEbMdDZitCbDVXWwE3SSVDWYZHMIt0K1R3ZBp3RMlmbpZ2cE5EeOZ3RGRWTWhFWpdnRzFTNPlkaD10LDhlVWRUY21EW0FzQIhjV242aLpWQ2xUSIZjTOlmVQVkR48CZmFUV&amp;tablename=CJFD2009"><b>CAJ下载</b></a></li>
+              <li class="
+                            pdf
+                        "><a target="_blank" href="http://www.cnki.net/kcms/download.aspx?filename=EJUZSpkR51EWhVzQstWWSdEdKFUYStEbMdDZitCbDVXWwE3SSVDWYZHMIt0K1R3ZBp3RMlmbpZ2cE5EeOZ3RGRWTWhFWpdnRzFTNPlkaD10LDhlVWRUY21EW0FzQIhjV242aLpWQ2xUSIZjTOlmVQVkR48CZmFUV&amp;tablename=CJFD2009&amp;dflag=pdfdown"><b>PDF下载</b></a></li>
+              <li class="cajv"><a target="_blank" href="http://cajviewer.cnki.net/download.html"><b>CAJViewer下载</b></a></li>
+              <li style="display: none;" id="ybyl"></li>
+              <li class="note">不支持迅雷等下载工具。</li>
+            </ul><span><div id="weibo"><input id="hidtitle" value="宋国柱-计算机工程与设计-2009年24期
+          " type="hidden"><a target="_blank" class="customizebtn" onclick="
+            SubScription('2', 'WEEvREcwSlJHSldTTGJhYkg4bFBraExFZVRHMFZtMXZ1YXNja3o0bmtXbHlid3htZnhSWHRWamh2U2FIYUM1SGxzcz0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4IQMovwHtwkF4VYPoHbKxJw!!', 'CJFD2009|');
+          ">
+          免费订阅
+        </a><script type="text/javascript">
+          RenderYbylHtml();
+        </script></div></span><div class="clear"></div>
+          </div>
+          <div class="summary pad10">
+            <div class="picShow">
+              <div class="dujiaPic" id="dujiaPic" style="display: block;"></div>
+              <div class="pic"><a id="jpic" onclick="
+                            getKns55NaviLinkIssue('WEEvREcwSlJHSldTTGJhYkg4bFBraExFZVRHMFZtMXZ1YXNja3o0bmtXbHlid3htZnhSWHRWamh2U2FIYUM1SGxzcz0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4IQMovwHtwkF4VYPoHbKxJw!!','CJFQ','CJFQyearinfo','SJSJ','2009','24');
+                        "><img src="%E5%9F%BA%E4%BA%8EMysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E6%99%BA%E8%83%BDDNS%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0%20-%20%E4%B8%AD%E5%9B%BD%E5%AD%A6%E6%9C%AF%E6%9C%9F%E5%88%8A%E7%BD%91%E7%BB%9C%E5%87%BA%E7%89%88%E6%80%BB%E5%BA%93_files/SJSJ200924.jpg"></a></div>
+              <div class="detailLink"><a onclick="
+        getKns55NaviLink('WEEvREcwSlJHSldTTGJhYkg4bFBraExFZVRHMFZtMXZ1YXNja3o0bmtXbHlid3htZnhSWHRWamh2U2FIYUM1SGxzcz0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4IQMovwHtwkF4VYPoHbKxJw!!','CJFQ','CJFQbaseinfo','SJSJ');
+      ">计算机工程与设计</a><span class="gold" id="dujiaGold" style="display: inline-block;"></span>
+                                    ,
+                                    <a onclick="
+        getKns55NaviLink('WEEvREcwSlJHSldTTGJhYkg4bFBraExFZVRHMFZtMXZ1YXNja3o0bmtXbHlid3htZnhSWHRWamh2U2FIYUM1SGxzcz0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4IQMovwHtwkF4VYPoHbKxJw!!','CJFQ','CJFQbaseinfo','SJSJ');
+      ">Computer Engineering and Design</a>,
+                                <br><a target="_blank" href="mailto:SJSJ@chinajournal.net.cn">                                    
+                                    编辑部邮箱,
+                                </a><br><a onclick="
+                        getKns55NaviLinkIssue('WEEvREcwSlJHSldTTGJhYkg4bFBraExFZVRHMFZtMXZ1YXNja3o0bmtXbHlid3htZnhSWHRWamh2U2FIYUM1SGxzcz0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4IQMovwHtwkF4VYPoHbKxJw!!','CJFQ','CJFQyearinfo','SJSJ','2009','24')
+                    ">2009年24期
+                </a><br><a target="_blank" href="http://sjsj.cbpt.cnki.net/">[给本刊投稿]
+                                </a><span id="mlyll"><br><a href="http://acad.cnki.net/kns55/oldNavi/n_JournalCatalog.aspx?NaviID=1&amp;YearID=SJSJ200924&amp;BaseID=SJSJ&amp;Field=%e6%8b%bc%e9%9f%b3%e5%88%8a%e5%90%8d*%e5%b9%b4*%e6%9c%9f&amp;Value=SJSJ*2009*24&amp;NaviLink=%e8%ae%a1%e7%ae%97%e6%9c%ba%e5%b7%a5%e7%a8%8b%e4%b8%8e%e8%ae%be%e8%ae%a1-/kns/oldnavi/n_item.aspx?NaviID=1&amp;BaseID=SJSJ&amp;nhFileName=SJSJ200924.KDH" target="_blank">[目录页浏览]</a></span></div>
+            </div>
+            <div class="author summaryRight">
+              <p>
+        【作者】
+          <a class="KnowledgeNetLink" target="_blank" href="http://www.cnki.net/kcms/detail/search.aspx?dbcode=CJFQ&amp;sfield=au&amp;skey=%e5%ae%8b%e5%9b%bd%e6%9f%b1&amp;code=08412586;08869946;">宋国柱</a>；
+          <a class="KnowledgeNetLink" target="_blank" href="http://www.cnki.net/kcms/detail/search.aspx?dbcode=CJFQ&amp;sfield=au&amp;skey=%e9%99%88%e4%bf%8a%e6%9d%b0&amp;code=08412586;08869946;">陈俊杰</a>；
+          </p>
+              <p id="au_en">
+      【Author】
+      SONG Guo-zhu1,CHEN Jun-jie2(1.Information Network Center,Shanxi 
+Agricultural University,Taigu 030801,China;2.College of Computer and 
+Software,Taiyuan University of Technology,Taiyuan 030024,China)</p>
+              <p>
+      【机构】
+      <a class="KnowledgeNetLink" target="_blank" href="http://www.cnki.net/kcms/detail/search.aspx?dbcode=CJFQ&amp;sfield=inst&amp;skey=%e5%b1%b1%e8%a5%bf%e5%86%9c%e4%b8%9a%e5%a4%a7%e5%ad%a6%e4%bf%a1%e6%81%af%e7%bd%91%e7%bb%9c%e4%b8%ad%e5%bf%83&amp;code=0161155;0077528;">山西农业大学信息网络中心</a>；
+      <a class="KnowledgeNetLink" target="_blank" href="http://www.cnki.net/kcms/detail/search.aspx?dbcode=CJFQ&amp;sfield=inst&amp;skey=%e5%a4%aa%e5%8e%9f%e7%90%86%e5%b7%a5%e5%a4%a7%e5%ad%a6%e8%ae%a1%e7%ae%97%e6%9c%ba%e4%b8%8e%e8%bd%af%e4%bb%b6%e5%ad%a6%e9%99%a2&amp;code=0161155;0077528;">太原理工大学计算机与软件学院</a>；
+      </p>
+              <p>      
+      【摘要】 <span id="ChDivSummary" name="ChDivSummary">针对如何提高ChinaNet用户访
+问CERNet资源的速度及提高DNS服务器的响应时间,该系统在满足标准FRC协议、智能DNS和调研各高校网络服务需求的基础上,提出了基于
+Mysql数据库的智能DNS系统。对具体网站的性能测试表明,将区域数据存储于Mysql数据库相比于传统DNS服务器(区域数据存储于文本文件),在
+最大、最小、平均和完成全部查询的响应时间方面都具有突出的性能,可大大改善DNS服务器的响应时间。&nbsp;</span><span><a id="ChDivSummaryMore" onclick="MoerSummary('ChDivSummary','ChDivSummaryMore','ChDivSummaryReset')" style="display:none">更多</a><a id="ChDivSummaryReset" onclick="ResetSummary('ChDivSummary','ChDivSummaryMore','ChDivSummaryReset')" style="display:none">还原</a></span><br></p><script type="text/javascript">
+      AbstractFilter('ChDivSummary','ChDivSummaryMore','ChDivSummaryReset');
+    </script></div>
+            <div class="keywords int5">
+    【关键词】 <span id="ChDivKeyWord" name="ChDivKeyWord"><a class="KnowledgeNetLink" target="_blank" href="http://www.cnki.net/kcms/detail/search.aspx?dbcode=CJFQ&amp;sfield=kw&amp;skey=%e5%9f%9f%e5%90%8d%e7%b3%bb%e7%bb%9f">域名系统</a>；
+      <a class="KnowledgeNetLink" target="_blank" href="http://www.cnki.net/kcms/detail/search.aspx?dbcode=CJFQ&amp;sfield=kw&amp;skey=Mysql">Mysql</a>；
+      <a class="KnowledgeNetLink" target="_blank" href="http://www.cnki.net/kcms/detail/search.aspx?dbcode=CJFQ&amp;sfield=kw&amp;skey=%e8%b6%85%e6%96%87%e6%9c%ac%e9%a2%84%e5%a4%84%e7%90%86%e5%99%a8">超文本预处理器</a>；
+      <a class="KnowledgeNetLink" target="_blank" href="http://www.cnki.net/kcms/detail/search.aspx?dbcode=CJFQ&amp;sfield=kw&amp;skey=%e7%83%ad%e5%a4%87%e4%bb%bd">热备份</a>；
+      <a class="KnowledgeNetLink" target="_blank" href="http://www.cnki.net/kcms/detail/search.aspx?dbcode=CJFQ&amp;sfield=kw&amp;skey=%e6%99%ba%e8%83%bd">智能</a>；
+      </span><br></div>
+            <div class="keywords int5"></div>
+            <div id="divimg" style="display:none ;" class="keywords int5">【文内图片】</div>
+            <div id="imgdiv"></div>
+            <div class="clear"></div>
+          </div>
+          <div class="blankw"></div>
+          <div class="summary  pad10">
+            <div class="clear"></div>
+            <ul class="break">
+              <li>
+                                    【分类号】TP311.52</li>
+              <li>
+                                    【被引频次】7</li>
+              <li>
+                                    【下载频次】279</li>
+            </ul>
+            <div class="clear"></div>
+          </div>
+        </div>
+        <div class="nodebar">
+          <div class="zwjdown"><a target="_blank" href="http://www.cnki.net/kcms/detail/detailall.aspx?filename=sjsj200924060&amp;dbcode=CJFQ&amp;dbname=CJFD2009">
+                        知网节下载
+                      </a></div>
+          <div class="SnapshotSearch">
+            节点文献中：<input value="请输入检索词" size="30" onclick="EnableSnapShot(this);" maxlength="40" id="SnapshotSearchItem" type="text">&nbsp;<input value="全文快照搜索" id="SnapshotSearchButton" onclick="
+                    StartSnapShotSearch('CJFQ','sjsj200924060','CJFD2009')
+                " type="button"></div>
+          <div class="clear"></div>
+          <div style="display: none;" id="divSnapshotSearchContent">
+            <div id="divSnapshotSearchText"></div><span onclick="ResetSnapShot()"></span></div>
+        </div>
+        <h2 id="MapTitle" class="Kh2">本文链接的文献网络图示:</h2>
+        <div id="MapArea">
+          <div class="MapAreaLeft" style="height: 170px">
+            <div class="ywwl">本文的引文网络</div>
+            <div class="map">
+              <div class="rjckwx" style="z-index: 101"><a target="frame1" href="http://www.cnki.net/kcms/detail/frame/list.aspx?dbcode=CJFQ&amp;filename=sjsj200924060&amp;dbname=CJFD2009&amp;RefType=2&amp;vl=MTAxMTJyUm8yZWJlVkppZk5mOXo3UkpLV3JZOUZiZWtMREhvNW9CUVQ2enQ4U24vcg==" id="rl2" name="rl" title="本文参考文献的参考文献。进一步反映本文研究工作的背景和依据">二级参考文献</a><span id="rc2">(8)</span></div>
+              <div class="ckwx" style="z-index: 102"><a class="ReferLinkOn" target="frame1" href="http://www.cnki.net/kcms/detail/frame/list.aspx?dbcode=CJFQ&amp;filename=sjsj200924060&amp;dbname=CJFD2009&amp;RefType=1&amp;vl=MTAxMTJyUm8yZWJlVkppZk5mOXo3UkpLV3JZOUZiZWtMREhvNW9CUVQ2enQ4U24vcg==" id="rl1" name="rl" title="反映本文研究工作的背景和依据">参考文献</a><span id="rc1">(7)</span></div>
+              <div class="gywx" style="z-index: 103"><a target="frame1" href="http://www.cnki.net/kcms/detail/frame/list.aspx?dbcode=CJFQ&amp;filename=sjsj200924060&amp;dbname=CJFD2009&amp;RefType=5&amp;vl=MTAxMTJyUm8yZWJlVkppZk5mOXo3UkpLV3JZOUZiZWtMREhvNW9CUVQ2enQ4U24vcg==" id="rl5" name="rl" title="（也称同引文献）与本文有相同参考文献的文献，与本文有共同研究背景或依据">共引文献</a><span id="rc5">(170)</span></div>
+              <div class="jdwx" style="z-index: 104" title="">节点文献</div>
+              <div class="tbywx" style="z-index: 105"><a target="frame1" href="http://www.cnki.net/kcms/detail/frame/list.aspx?dbcode=CJFQ&amp;filename=sjsj200924060&amp;dbname=CJFD2009&amp;RefType=6&amp;vl=MTAxMTJyUm8yZWJlVkppZk5mOXo3UkpLV3JZOUZiZWtMREhvNW9CUVQ2enQ4U24vcg==" id="rl6" name="rl" title="与本文同时被作为参考文献引用的文献，与本文共同作为进一步研究的基础">同被引文献</a><span id="rc6">(93)</span></div>
+              <div class="yzwx" style="z-index: 107"><a target="frame1" href="http://www.cnki.net/kcms/detail/frame/list.aspx?dbcode=CJFQ&amp;filename=sjsj200924060&amp;dbname=CJFD2009&amp;RefType=3&amp;vl=MTAxMTJyUm8yZWJlVkppZk5mOXo3UkpLV3JZOUZiZWtMREhvNW9CUVQ2enQ4U24vcg==" id="rl3" name="rl" title="引用本文的文献。本文研究工作的继续、应用、发展或评价">引证文献</a><span id="rc3">(7)</span></div>
+              <div class="rjyzwx" style="z-index: 108"><a target="frame1" href="http://www.cnki.net/kcms/detail/frame/list.aspx?dbcode=CJFQ&amp;filename=sjsj200924060&amp;dbname=CJFD2009&amp;RefType=4&amp;vl=MTAxMTJyUm8yZWJlVkppZk5mOXo3UkpLV3JZOUZiZWtMREhvNW9CUVQ2enQ4U24vcg==" id="rl4" name="rl" title="本文引证文献的引证文献。更进一步反映本文研究工作的继续、发展或评价">二级引证文献</a><span id="rc4">(7)</span></div>
+            </div>
+            <div class="time"><span onmouseover="TimeAxisMoveRight('AxisFrameDivLeft');" onmouseout="TimeAxisStop();" onclick="TimeAxisMoveFaster();" class="ArrowLeftDisable" title="显示前面的年份" id="ArrowLeft_AxisFrameDivLeft"></span><div style="height: 55px;" class="year" id="AxisFrameDivLeft"><div style="left: 0px; width: 480px;" class="ContentDiv" id="AxisFrameDivLeft_ContentDiv"><div class="cell"><div class="number"><a cellid="6dea5135-a45b-8eb4-fa0a-7a2e0971f2da" class="number">1</a></div><div class="Scale"></div><div class="bottomYear"><a cellid="6dea5135-a45b-8eb4-fa0a-7a2e0971f2da">1981</a></div></div><div class="cell"><div class="number"><a cellid="fbab1a9c-1192-b2a6-725c-be0e3686c438" class="number">1</a></div><div class="Scale"></div><div class="bottomYear"><a cellid="fbab1a9c-1192-b2a6-725c-be0e3686c438">1983</a></div></div><div class="cell"><div class="number"><a cellid="44a2c5e6-6d44-c743-38a4-44fb411e5b8e" class="number">1</a></div><div class="Scale"></div><div class="bottomYear"><a cellid="44a2c5e6-6d44-c743-38a4-44fb411e5b8e">1994</a></div></div><div class="cell"><div class="number"><a cellid="e86ccc7e-7d60-42a8-7321-4bdb17271e38" class="number">1</a></div><div class="Scale"></div><div class="bottomYear"><a cellid="e86ccc7e-7d60-42a8-7321-4bdb17271e38">1996</a></div></div><div class="cell"><div class="number"><a cellid="d243fcec-226f-fbde-5834-7efebba186e7" class="number">1</a></div><div class="Scale"></div><div class="bottomYear"><a cellid="d243fcec-226f-fbde-5834-7efebba186e7">1998</a></div></div><div class="cell"><div class="number"><a cellid="7894f49b-0e69-bec9-a824-539658169045" class="number">1</a></div><div class="Scale"></div><div class="bottomYear"><a cellid="7894f49b-0e69-bec9-a824-539658169045">2000</a></div></div><div class="cell"><div class="number"><a cellid="29426bfe-01da-1869-764c-c7222f1f092b" class="number">1</a></div><div class="Scale"></div><div class="bottomYear"><a cellid="29426bfe-01da-1869-764c-c7222f1f092b">2001</a></div></div><div class="cell"><div class="number"><a cellid="33628a47-f53a-dc88-cc7e-85a39d376835" class="number">2</a></div><div class="Scale"></div><div class="bottomYear"><a cellid="33628a47-f53a-dc88-cc7e-85a39d376835">2004</a></div></div><div class="cell"><div class="number"><a cellid="8027eb70-5314-f60b-a83a-6b4bd732f045" class="number">1</a></div><div class="Scale"></div><div class="bottomYear"><a cellid="8027eb70-5314-f60b-a83a-6b4bd732f045">2005</a></div></div><div class="cell"><div class="number"><a cellid="c004a899-751f-dbdb-ed2e-3907ca4cf682" class="number">2</a></div><div class="Scale"></div><div class="bottomYear"><a cellid="c004a899-751f-dbdb-ed2e-3907ca4cf682">2006</a></div></div><div class="cell"><div class="number"><a cellid="5b54d74e-f7fd-82e3-127d-802c72da3b5c" class="number">2</a></div><div class="Scale"></div><div class="bottomYear"><a cellid="5b54d74e-f7fd-82e3-127d-802c72da3b5c">2007</a></div></div><div class="cell"><div class="number"><a cellid="97d0ec35-50bd-6fa8-afbf-26390e3db438" class="number">1</a></div><div class="Scale"></div><div class="bottomYear"><a cellid="97d0ec35-50bd-6fa8-afbf-26390e3db438">2008</a></div></div></div></div><span onmouseover="TimeAxisMoveLeft('AxisFrameDivLeft');" onmouseout="TimeAxisStop();" onclick="TimeAxisMoveFaster()" class="ArrowRightEnable" title="显示后面的年份" id="ArrowRight_AxisFrameDivLeft"></span><div class="TimeMiddle" id="AxisFrameDivCurrent" style="height: 55px;"><div style="left: 0px; width: 40px;" class="ContentDiv" id="AxisFrameDivCurrent_ContentDiv"><div class="cell"><div class="number">0</div><div class="Scale"></div><div class="bottomYear">2009</div></div></div></div><span onmouseover="TimeAxisMoveRight('AxisFrameDivRight');" onmouseout="TimeAxisStop();" onclick="TimeAxisMoveFaster()" class="ArrowLeftDisable" title="显示前面的年份" id="ArrowLeft_AxisFrameDivRight"></span><div style="height: 55px;" class="year" id="AxisFrameDivRight"><div style="left: 0px; width: 160px;" class="ContentDiv" id="AxisFrameDivRight_ContentDiv"><div class="cell"><div class="number"><a cellid="b3b09163-b716-2004-74ec-3ce6940dd2cc" class="number">4</a></div><div class="Scale"></div><div class="bottomYear"><a cellid="b3b09163-b716-2004-74ec-3ce6940dd2cc">2011</a></div></div><div class="cell"><div class="number"><a cellid="c1bceb50-faaa-f2f8-6cf4-5eb16753925e" class="number">1</a></div><div class="Scale"></div><div class="bottomYear"><a cellid="c1bceb50-faaa-f2f8-6cf4-5eb16753925e">2012</a></div></div><div class="cell"><div class="number"><a cellid="3caebf33-773e-c9ed-4d23-2059b77c169e" class="number">6</a></div><div class="Scale"></div><div class="bottomYear"><a cellid="3caebf33-773e-c9ed-4d23-2059b77c169e">2013</a></div></div><div class="cell"><div class="number"><a cellid="0a241d1f-1aa5-f778-e2cf-e26dd0cc465b" class="number">3</a></div><div class="Scale"></div><div class="bottomYear"><a cellid="0a241d1f-1aa5-f778-e2cf-e26dd0cc465b">2014</a></div></div></div></div><span onmouseover="TimeAxisMoveLeft('AxisFrameDivRight');" onmouseout="TimeAxisStop();" onclick="TimeAxisMoveFaster()" class="ArrowRightDisable" title="显示后面的年份" id="ArrowRight_AxisFrameDivRight"></span><span style="display: none; visibility: hidden;" class="ArrowLeftEnable" alt=""></span><div class="clear"></div>
+            </div>
+          </div>
+          <div>
+            <div id="NodeValueDiv1" class="TimeHide" onmouseout="HideNodeValueDiv();" onmouseover="window.clearTimeout(window.timeout_NodeValueDiv);">
+              <ul>
+                <li><a id="NodeValueDiv1ReferType1Link" onclick="ChangeReferType('1');" title="反映本文研究工作的背景和依据">参考文献</a><span id="NodeValueDiv1ReferType1Level1"></span></li>
+                <li><a id="NodeValueDiv1ReferType2Link" onclick="ChangeReferType('2');" title="本文参考文献的参考文献。进一步反映本文研究工作的背景和依据">二级参考文献</a><span id="NodeValueDiv1ReferType2Level2"></span></li>
+              </ul>
+            </div>
+            <div id="NodeValueDiv2" class="TimeHide" onmouseout="HideNodeValueDiv();" onmouseover="window.clearTimeout(window.timeout_NodeValueDiv);">
+              <ul>
+                <li><a id="NodeValueDiv2ReferType4Link" onclick="ChangeReferType('3');" title="引用本文的文献。本文研究工作的继续、应用、发展或评价">引证文献</a><span id="NodeValueDiv2ReferType4Level1"></span></li>
+                <li><a id="NodeValueDiv2ReferType16Link" onclick="ChangeReferType('4');" title="本文引证文献的引证文献。更进一步反映本文研究工作的继续、发展或评价">二级引证文献</a><span id="NodeValueDiv2ReferType16Level2"></span></li>
+              </ul>
+            </div>
+            <div id="NodeValueDiv3" class="TimeHide" onmouseout="HideNodeValueDiv();" onmouseover="window.clearTimeout(window.timeout_NodeValueDiv);">
+              <ul>
+                <li><a id="NodeValueDiv3ReferType1Link" onclick="ChangeReferType('1');" title="反映本文研究工作的背景和依据">参考文献</a><span id="NodeValueDiv3ReferType1Level1"></span></li>
+                <li><a id="NodeValueDiv3ReferType2Link" onclick="ChangeReferType('2');" title="本文参考文献的参考文献。进一步反映本文研究工作的背景和依据">二级参考文献</a><span id="NodeValueDiv3ReferType2Level2"></span></li>
+                <li><a id="NodeValueDiv3ReferType4Link" onclick="ChangeReferType('3');" title="引用本文的文献。本文研究工作的继续、应用、发展或评价">引证文献</a><span id="NodeValueDiv3ReferType4Level1"></span></li>
+                <li><a id="NodeValueDiv3ReferType16Link" onclick="ChangeReferType('4');" title="本文引证文献的引证文献。更进一步反映本文研究工作的继续、发展或评价">二级引证文献</a><span id="NodeValueDiv3ReferType16Level2"></span></li>
+              </ul>
+            </div>
+          </div>
+        </div><script type="text/javascript">       
+        SetRefChartDataEx('CJFQ','sjsj200924060','CJFD2009','2009');
+      </script><iframe style="height: 350px;" src="%E5%9F%BA%E4%BA%8EMysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E6%99%BA%E8%83%BDDNS%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0%20-%20%E4%B8%AD%E5%9B%BD%E5%AD%A6%E6%9C%AF%E6%9C%9F%E5%88%8A%E7%BD%91%E7%BB%9C%E5%87%BA%E7%89%88%E6%80%BB%E5%BA%93_files/list.htm" id="frame1" name="frame1" scrolling="no" frameborder="no" height="0" width="100%"></iframe><script type="text/javascript">
+                    RegDujia('CJFQ','SJSJ','2009','24','jpic');
+                    
+                        RegisterFrame('frame2','CJFQ','/kcms/detail/frame/list.aspx?filename=sjsj200924060&dbcode=CJFQ&dbname=CJFD2009&reftype=7');
+                    
+                        RegisterFrame('frame3','CJFQ','/kcms/detail/frame/list.aspx?filename=sjsj200924060&dbcode=CJFQ&dbname=CJFD2009&reftype=8');
+                    
+                        RegisterFrame('frame5','CJFQ','/kcms/detail/frame/list.aspx?filename=sjsj200924060&dbcode=CJFQ&dbname=CJFD2009&reftype=10');
+                        
+                        RegisterFrame('frame6','CJFQ','/kcms/detail/frame/list.aspx?filename=sjsj200924060&dbcode=CJFQ&dbname=CJFD2009&reftype=11');
+                    
+                        RegisterFrame('frame4','CJFQ','/kcms/detail/frame/list.aspx?filename=sjsj200924060&dbcode=CJFQ&dbname=CJFD2009&cat=TP311.52&reftype=9');
+                    </script><iframe style="height: 343px;" id="frame2" name="frame2" scrolling="no" src="%E5%9F%BA%E4%BA%8EMysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E6%99%BA%E8%83%BDDNS%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0%20-%20%E4%B8%AD%E5%9B%BD%E5%AD%A6%E6%9C%AF%E6%9C%9F%E5%88%8A%E7%BD%91%E7%BB%9C%E5%87%BA%E7%89%88%E6%80%BB%E5%BA%93_files/list_002.htm" frameborder="no" height="0" width="100%"></iframe> <iframe style="height: 317px;" id="frame3" name="frame3" scrolling="no" src="%E5%9F%BA%E4%BA%8EMysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E6%99%BA%E8%83%BDDNS%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0%20-%20%E4%B8%AD%E5%9B%BD%E5%AD%A6%E6%9C%AF%E6%9C%9F%E5%88%8A%E7%BD%91%E7%BB%9C%E5%87%BA%E7%89%88%E6%80%BB%E5%BA%93_files/list_003.htm" frameborder="no" height="0" width="100%"></iframe> <iframe style="height: 266px;" id="frame5" name="frame5" scrolling="no" src="%E5%9F%BA%E4%BA%8EMysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E6%99%BA%E8%83%BDDNS%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0%20-%20%E4%B8%AD%E5%9B%BD%E5%AD%A6%E6%9C%AF%E6%9C%9F%E5%88%8A%E7%BD%91%E7%BB%9C%E5%87%BA%E7%89%88%E6%80%BB%E5%BA%93_files/list_004.htm" frameborder="no" height="0" width="100%"></iframe> <iframe style="height: 193px;" id="frame6" name="frame6" scrolling="no" src="%E5%9F%BA%E4%BA%8EMysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E6%99%BA%E8%83%BDDNS%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0%20-%20%E4%B8%AD%E5%9B%BD%E5%AD%A6%E6%9C%AF%E6%9C%9F%E5%88%8A%E7%BD%91%E7%BB%9C%E5%87%BA%E7%89%88%E6%80%BB%E5%BA%93_files/list_005.htm" frameborder="no" height="0" width="100%"></iframe> <iframe style="height: 483px;" id="frame4" name="frame4" scrolling="no" src="%E5%9F%BA%E4%BA%8EMysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E6%99%BA%E8%83%BDDNS%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0%20-%20%E4%B8%AD%E5%9B%BD%E5%AD%A6%E6%9C%AF%E6%9C%9F%E5%88%8A%E7%BD%91%E7%BB%9C%E5%87%BA%E7%89%88%E6%80%BB%E5%BA%93_files/list_006.htm" frameborder="no" height="0" width="100%"></iframe> </div>
+      <div style="display: block;" id="usersee_his" class="wx_jsframe_jiao"><strong>浏览历史：</strong></div>
+      <div id="usersee_hiscontent" style="width:185px;height:auto;float:right"><ul class="listSpan"><li><a href="http://epub.cnki.net/kns/detail/detail.aspx?dbcode=cjfq&amp;dbname=cjfd2009&amp;filename=sjsj200924060">基于Mysql数据库的智能DNS系统的设计与实现</a></li><li><a href="http://epub.cnki.net/kns/detail/detail.aspx?dbcode=cjfq&amp;dbname=cjfd2011&amp;filename=zgjl201101014">智能DNS在校园网多链路控制的应用</a></li><li><a href="http://epub.cnki.net/kns/detail/detail.aspx?dbcode=cmfd&amp;dbname=cmfd0911&amp;filename=1011144548.nh">校园智能DNS系统的研究与实现</a></li></ul><span><a onclick="newdelCookie('UserSeesKcms')" href="javascript:void(0)" style="margin-left:160px;">清空</a></span></div>
+      <div style="display: none;" id="userdown_his" class="wx_jsframe_jiao"><strong>下载历史：</strong></div>
+      <div id="userdowmn_hiscontent" style="width:185px;height:auto;float:right"></div>
+      <div id="ad">
+        <iframe src="%E5%9F%BA%E4%BA%8EMysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E6%99%BA%E8%83%BDDNS%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0%20-%20%E4%B8%AD%E5%9B%BD%E5%AD%A6%E6%9C%AF%E6%9C%9F%E5%88%8A%E7%BD%91%E7%BB%9C%E5%87%BA%E7%89%88%E6%80%BB%E5%BA%93_files/GetADInfo_002.htm" id="rightad" scrolling="no" style="display: block;" frameborder="0" height="700px" width="185px"></iframe>
+      </div>
+      <div id="bkbqsm"></div>
+      <div class="clear"></div>
+    </div><script type="text/javascript">
+          GetInfo('SJSJ','2009','24','计算机工程与设计');
+
+          newsetCookie('UserSeesKcms','');
+          newhisresult_ll();
+          BindOnClick_DownLoad();
+          newhisresult_down();
+          try{ GetImgPath();}catch(err){}
+          RegAd('headad','r002','域名系统|Mysql|超文本预处理器|热备份|智能|','SJSJ','I138','基于Mysql数据库的智能DNS系统的设计与实现');
+          RegAd('rightad','r005','域名系统|Mysql|超文本预处理器|热备份|智能|','SJSJ','I138','基于Mysql数据库的智能DNS系统的设计与实现');
+   
+        </script><script charset="utf-8" src="%E5%9F%BA%E4%BA%8EMysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E6%99%BA%E8%83%BDDNS%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0%20-%20%E4%B8%AD%E5%9B%BD%E5%AD%A6%E6%9C%AF%E6%9C%9F%E5%88%8A%E7%BD%91%E7%BB%9C%E5%87%BA%E7%89%88%E6%80%BB%E5%BA%93_files/getimage.txt"></script><div id="footer"><span></span><a class="GAleft" href="http://www.hd315.gov.cn/beian/view.asp?bianhao=010202005012100021" target="_blank"></a><a class="GAright" href="http://www.hd315.gov.cn/beian/view.asp?bianhao=010202005012100021" target="_blank"></a><p>
+                    京ICP证040431号
+                    <a href="http://www.cnki.net/images/006.jpg">互联网出版许可证 新出网证(京)字008号</a><br>
+                        京公网安备 11010802014875 号
+                        <br>
+                            © 2014中国知网(cnki) 《中国学术期刊(光盘版)》电子杂志社有限公司
+                            <br>
+                                服务热线：400-810-9888 订卡热线：400-819-9993
+                                <br>
+                                    在线咨询：<a href="http://help.cnki.net/" target="_blank">http://help.cnki.net</a> 客服中心：<a href="http://service.cnki.net/" target="_blank">http://service.cnki.net/</a> 电子邮件：<a href="mailto:help@cnki.net" target="_blank">help@cnki.net</a></p>
+    </div><script type="text/javascript" src="%E5%9F%BA%E4%BA%8EMysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E6%99%BA%E8%83%BDDNS%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0%20-%20%E4%B8%AD%E5%9B%BD%E5%AD%A6%E6%9C%AF%E6%9C%9F%E5%88%8A%E7%BD%91%E7%BB%9C%E5%87%BA%E7%89%88%E6%80%BB%E5%BA%93_files/Recommend.js"></script><script charset="utf-8" src="%E5%9F%BA%E4%BA%8EMysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E6%99%BA%E8%83%BDDNS%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0%20-%20%E4%B8%AD%E5%9B%BD%E5%AD%A6%E6%9C%AF%E6%9C%9F%E5%88%8A%E7%BD%91%E7%BB%9C%E5%87%BA%E7%89%88%E6%80%BB%E5%BA%93_files/KRSWriteHandler.txt" id="callScriptE"></script><script type="text/javascript" src="%E5%9F%BA%E4%BA%8EMysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E6%99%BA%E8%83%BDDNS%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0%20-%20%E4%B8%AD%E5%9B%BD%E5%AD%A6%E6%9C%AF%E6%9C%9F%E5%88%8A%E7%BD%91%E7%BB%9C%E5%87%BA%E7%89%88%E6%80%BB%E5%BA%93_files/klib.js"></script><script type="text/javascript" src="%E5%9F%BA%E4%BA%8EMysql%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E6%99%BA%E8%83%BDDNS%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0%20-%20%E4%B8%AD%E5%9B%BD%E5%AD%A6%E6%9C%AF%E6%9C%9F%E5%88%8A%E7%BD%91%E7%BB%9C%E5%87%BA%E7%89%88%E6%80%BB%E5%BA%93_files/Timeaxis.js"></script><script>
+          SetDownLoadFlag('1');
+          GetShareWeibosRight('http://piccache.cnki.net/kcms/detail/');
+          </script><div id="common_box" class="shareDiv" onmouseover="showshare()" onmouseout="closeshare()"><div id="cli_on" class="sharehd">分享到</div><ul class="sharebd" id="sharedet"><li><a href="javascript:void(0);" onclick="ShareAction('xl')" class="xl" title="分享到新浪微博"><i></i>新浪微博</a></li><li><a href="javascript:void(0);" onclick="ShareAction('tx')" class="tx" title="分享到腾讯微博"><i></i>腾讯微博</a></li><li><a href="javascript:void(0);" onclick="ShareAction('rr')" class="rr" title="分享到人人网"><i></i>人人网</a></li><li><a href="javascript:void(0);" onclick="ShareAction('kx')" class="kx" title="分享到开心网"><i></i>开心网</a></li><li><a href="javascript:void(0);" onclick="ShareAction('db')" class="db" title="分享到豆瓣网"><i></i>豆瓣网</a></li><li><a href="javascript:void(0);" onclick="ShareAction('wy')" class="wy" title="分享到网易微博"><i></i>网易微博</a></li></ul></div>
+</body></html>

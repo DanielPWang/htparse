@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <META http-equiv="Content-Type" content="text/html; charset=utf-16">
+    <title>校园智能DNS系统的构建和对DNS查询的统计分析 - 中国优秀硕士学位论文全文数据库</title>
+    <link rel="stylesheet" type="text/css" href="http://piccache.cnki.net/kcms/detail/resource/gb/css/Global.css&#xA;          ">
+    <link rel="stylesheet" type="text/css" href="http://piccache.cnki.net/kcms/detail/resource/gb/css/detail.css&#xA;          "><script type="text/javascript" src="/kcms/detail/js/getLink.aspx"></script><script type="text/javascript" src="http://piccache.cnki.net/kcms/detail/resource/gb/js/rs.js&#xA;          "></script><script type="text/javascript" src="http://piccache.cnki.net/kcms/detail/js/Common.js"></script><script type="text/javascript" src="http://piccache.cnki.net/kcms/detail/js/detail.js"></script><script type="text/javascript" src="http://piccache.cnki.net/kcms/detail/js/Kajax.js&#xA;          "></script><script type="text/javascript" src="http://piccache.cnki.net/kcms/detail/js/jquery-1.4.2.min.js&#xA;          "></script></head>
+  <body><input id="loginuserid" type="hidden" value="WEEvREcwSlJHSldTTGJhYkg4bFBraExFZVRHMFZtMXZ1YXNja3o0bmtXbHlid3htZnhSWHRWamh2U2FIYUM1SGxzcz0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4IQMovwHtwkF4VYPoHbKxJw!!"><input id="listv" type="hidden" value="MjU5OTB0OFNuL3JyUm8yZWJlUkppRE5hdHk2SHRETXJvZEhZdWdHRWlKaG9CUVQ2eg=="><style>#header{background:url(/kcms/detail/resource/gb/images/zwjHeadBg.png) no-repeat #0185C5;}</style>
+    <div id="header">
+      <div class="zwjnav"><span id="isWaiWang"><a href="http://www.cnki.net/">CNKI主页</a> | <a href="http://search.cnki.net/">CNKI搜索</a> | 
+                <span id="lib"></span><script type="text/javascript">
+                  GetLib('数字图书馆');
+                  function getUrl()
+                  {
+                  var stru="http://my.cnki.net/elibregister/commonRegister.aspx?returnurl="+encodeURIComponent(window.location.href);
+                  window.open(stru);
+                  }
+                </script><a href="http://service.cnki.net/">读者服务</a> | 
+                <a href="http://www.cnki.net/software/xzydq.htm">下载阅读器</a> | 
+                <a target="_blank" href="&#xA;                  http://acad3.cnki.net/help/AssistDocument/KDN/html/main.htm&#xA;                "> 操作指南</a> | 
+                <a href="http://vipcard.cnki.net/ec/skwd/skwd.htm" target="_blank">购买知网卡</a> | <a href="http://my.cnki.net/CNKIRecharging/czzx.html" target="_blank">充值中心</a> | <a href="http://wap.cnki.net/jianjie.htm" target="_blank">手机版</a> | <a onclick="getUrl();" target="_blank">注册</a> | 
+              </span><span id="NaHeader_NaHeader_divlogin" class="divLogin">SH0227<a target="_parent" onclick="logout();" class="pointer">退出</a></span></div>
+      <div class="zwjImg"><b>中国优秀硕士学位论文全文数据库</b><span></span></div>
+      <div class="language">
+        <ul></ul>
+      </div>
+      <div class="zwjLogo"><img alt="中国知网" src="/kcms/detail/resource/gb/images/zwjLogo.GIF" width="140" height="51"></div>
+    </div>
+    <iframe scrolling="no" frameborder="0" id="headad" style="display:none;"></iframe>
+    <div class="clear"></div>
+    <div id="main">
+      <div class="mainleft" id="content">
+        <div>
+          <div id="title">
+            <h2>节点文献</h2>
+            <h1 id="spanTitle"><span id="chTitle">校园智能DNS系统的构建和对DNS查询的统计分析</span></h1>
+          </div><span class="downSpanDispaly"><div id="nav">
+              <ul>
+                <li class="&#xA;                            page&#xA;                        "><a target="_blank" href="&#xA;                        ../download.aspx?filename=CtiZzIHcwl1KU92M0YzRycHbn9CcHtke6JXURNUULJXTZV1K0oEUhJ1Kw8yK4Q0awc2d4x0RhF0dtZHR5pEW4Z3LQN2MrYHOzkETnFmevAVcxYlUmplVTdDekVGU1lXSLpUNPR0N2gTSYBnYwkUeWV2RwEVTmNlV&amp;dflag=downpage&amp;tablename=CMFD0911">
+                    分页下载
+                </a></li>
+                <li class="&#xA;                                chapter&#xA;                            "><a target="_blank" href="&#xA;                            ../download.aspx?filename=CtiZzIHcwl1KU92M0YzRycHbn9CcHtke6JXURNUULJXTZV1K0oEUhJ1Kw8yK4Q0awc2d4x0RhF0dtZHR5pEW4Z3LQN2MrYHOzkETnFmevAVcxYlUmplVTdDekVGU1lXSLpUNPR0N2gTSYBnYwkUeWV2RwEVTmNlV&amp;dflag=catalog&amp;tablename=CMFD0911">
+                        分章下载
+                    </a></li>
+                <li class="&#xA;                            whole&#xA;                        "><a target="_blank" href="&#xA;                        ../download.aspx?filename=CtiZzIHcwl1KU92M0YzRycHbn9CcHtke6JXURNUULJXTZV1K0oEUhJ1Kw8yK4Q0awc2d4x0RhF0dtZHR5pEW4Z3LQN2MrYHOzkETnFmevAVcxYlUmplVTdDekVGU1lXSLpUNPR0N2gTSYBnYwkUeWV2RwEVTmNlV&amp;dflag=nhdown&amp;tablename=CMFD0911">
+                    整本下载
+                </a></li>
+                <li class="&#xA;                            readol&#xA;                        "><a target="_blank" href="&#xA;                        ../download.aspx?filename=CtiZzIHcwl1KU92M0YzRycHbn9CcHtke6JXURNUULJXTZV1K0oEUhJ1Kw8yK4Q0awc2d4x0RhF0dtZHR5pEW4Z3LQN2MrYHOzkETnFmevAVcxYlUmplVTdDekVGU1lXSLpUNPR0N2gTSYBnYwkUeWV2RwEVTmNlV&amp;dflag=readonline&amp;tablename=CMFD0911">
+                    在线阅读
+                </a></li>
+                <li class="cajv"><a target="_blank" href="&#xA;                http://cajviewer.cnki.net/download.html&#xA;              "><b>CAJViewer下载</b></a></li>
+                <li id="ybyl"></li>
+                <li class="note">
+              不支持迅雷等下载工具。
+              </li>
+              </ul><span><div id="weibo"><input id="hidtitle" type="hidden" value="杨东东--2010年01期&#xA;          "><a target="_blank" class="customizebtn" onclick="&#xA;              SubScription('2', 'WEEvREcwSlJHSldTTGJhYkg4bFBraExFZVRHMFZtMXZ1YXNja3o0bmtXbHlid3htZnhSWHRWamh2U2FIYUM1SGxzcz0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4IQMovwHtwkF4VYPoHbKxJw!!', 'CMFD0911|');&#xA;            ">
+            免费订阅
+          </a><script type="text/javascript">
+          RenderYbylHtml();
+        </script></div></span><div class="clear"></div>
+            </div></span><div class="summary pad10">
+            <p>
+        【作者】
+          <a class="KnowledgeNetLink" target="_blank" href="&#xA;                /kcms/detail/search.aspx?dbcode=CMFD&amp;sfield=au&amp;skey=%e6%9d%a8%e4%b8%9c%e4%b8%9c&amp;code=24914501;">杨东东</a>；
+          </p>
+            <p>
+      【导师】
+      <a class="KnowledgeNetLink" target="_blank" href="&#xA;            search.aspx?dbcode=CMFD&amp;sfield=au&amp;skey=%e6%9d%8e%e8%8c%b9&amp;code=">李茹；
+        </a><a class="KnowledgeNetLink" target="_blank" href="&#xA;            search.aspx?dbcode=CMFD&amp;sfield=au&amp;skey=%e9%ba%bb%e6%b5%b7%e9%9b%b7&amp;code=">麻海雷；
+        </a></p>
+            <p>
+      【作者基本信息】
+      <a class="KnowledgeNetLink" target="_blank" onclick="&#xA;          getKns55UnitNaviLink('WEEvREcwSlJHSldTTGJhYkg4bFBraExFZVRHMFZtMXZ1YXNja3o0bmtXbHlid3htZnhSWHRWamh2U2FIYUM1SGxzcz0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4IQMovwHtwkF4VYPoHbKxJw!!','CMFD','GNMDU');&#xA;        ">内蒙古大学</a>，
+      计算机技术，
+      2010，
+      硕士</p>
+            <p>      
+      【摘要】 <span id="ChDivSummary" name="ChDivSummary">校园网是学校进行教学、科研和各种应用的基础平台。校园网的应用广泛,其网络结构和网络集成相对比较复杂,这些因素对DNS提出了更高的服务要求。本课题以内蒙古农业大学校园网有多个出口的实际情况为背景,构建了一个智能的DNS系统。在系统中主要利用BIND的视图特性,定义多个ACL来匹配不同的查询用户,根据客户端源IP的不同而返回服务器不同的解析IP,然后结合策略路由和NAT技术,很好的解决了不同的ISP用户访问学校的对外资源时都要绕行到教育网的问题。在设计中又实现了对DNS查询数据的储存和统计分析。根据我们学校网络设备的架构情况,主要采用NetFlow技术,结合开源的flow-tools软件,过滤出DNS查询数据流。利用perl语言对产生的DNS历史数据定期保存在MySql数据库中。为了避免观察的延后性,实现了一个实时监控模块,观察当前一定时间段内有关DNS的一些统计数据。对得到的这些数据进行分析,当发现有异常的数据流时,结合相关的网络设备进行联动,保护DNS服务器不受侵害。</span><span><a id="ChDivSummaryMore" onclick="MoerSummary('ChDivSummary','ChDivSummaryMore','ChDivSummaryReset')" style="display:none">更多</a><a id="ChDivSummaryReset" onclick="ResetSummary('ChDivSummary','ChDivSummaryMore','ChDivSummaryReset')" style="display:none">还原</a></span><br></p><script type="text/javascript">
+      AbstractFilter('ChDivSummary','ChDivSummaryMore','ChDivSummaryReset');
+    </script><div class="keywords">
+    【关键词】 <span id="ChDivKeyWord" name="ChDivKeyWord"><a class="KnowledgeNetLink" target="_blank" href="&#xA;            /kcms/detail/search.aspx?dbcode=CMFD&amp;sfield=kw&amp;skey=%e6%99%ba%e8%83%bdDNS">智能DNS</a>；
+      <a class="KnowledgeNetLink" target="_blank" href="&#xA;            /kcms/detail/search.aspx?dbcode=CMFD&amp;sfield=kw&amp;skey=+NetFlow">NetFlow</a>；
+      <a class="KnowledgeNetLink" target="_blank" href="&#xA;            /kcms/detail/search.aspx?dbcode=CMFD&amp;sfield=kw&amp;skey=+Perl">Perl</a>；
+      <a class="KnowledgeNetLink" target="_blank" href="&#xA;            /kcms/detail/search.aspx?dbcode=CMFD&amp;sfield=kw&amp;skey=+MySql">MySql</a>；
+      </span><br></div>
+            <div id="divimg" style="display:none ;" class="keywords">【文内图片】</div>
+            <div id="imgdiv"></div>
+            <div class="clear"></div>
+          </div>
+          <div class="blankw"></div>
+          <div class="summary01">
+            <ul class="break">
+              <li>
+                        【网络出版投稿人】 <a class="KnowledgeNetLink" target="_blank" onclick="&#xA;                            getKns55UnitNaviLink('WEEvREcwSlJHSldTTGJhYkg4bFBraExFZVRHMFZtMXZ1YXNja3o0bmtXbHlid3htZnhSWHRWamh2U2FIYUM1SGxzcz0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4IQMovwHtwkF4VYPoHbKxJw!!','CMFD','GNMDU');                            &#xA;                          ">内蒙古大学</a></li>
+            </ul>
+            <div class="clear"></div>
+            <ul class="break">
+              <li>
+                          【分类号】TP393.18</li>
+              <li>
+                          【被引频次】1</li>
+              <li>
+                          【下载频次】208</li>
+            </ul>
+            <div class="clear"></div>
+          </div>
+        </div>
+        <div class="nodebar">
+          <div class="zwjdown"><a target="_blank" href="&#xA;                  detailall.aspx?filename=2010182639.nh&amp;dbcode=CMFD&amp;dbname=CMFD0911">
+                知网节下载
+              </a></div>
+          <div class="SnapshotSearch">
+            节点文献中：<input type="text" value="请输入检索词" size="30" onclick="EnableSnapShot(this);" maxlength="40" id="SnapshotSearchItem">&nbsp;<input type="button" value="全文快照搜索" id="SnapshotSearchButton" onclick="&#xA;                    StartSnapShotSearch('CMFD','2010182639.nh','CMFD0911')&#xA;                "></div>
+          <div class="clear"></div>
+          <div style="display: none;" id="divSnapshotSearchContent">
+            <div id="divSnapshotSearchText"></div><span onclick="ResetSnapShot()"></span></div>
+        </div>
+        <h2 id="MapTitle" class="Kh2">本文链接的文献网络图示:</h2>
+        <div id="MapArea">
+          <div class="MapAreaLeft" style="height: 170px">
+            <div class="ywwl">本文的引文网络</div>
+            <div class="map">
+              <div class="rjckwx" style="z-index: 101"><a id="rl2" name="rl" title="本文参考文献的参考文献。进一步反映本文研究工作的背景和依据">二级参考文献</a><span id="rc2">(0)</span></div>
+              <div class="ckwx" style="z-index: 102"><a id="rl1" name="rl" title="反映本文研究工作的背景和依据">参考文献</a><span id="rc1">(0)</span></div>
+              <div class="gywx" style="z-index: 103"><a id="rl5" name="rl" title="（也称同引文献）与本文有相同参考文献的文献，与本文有共同研究背景或依据">共引文献</a><span id="rc5">(0)</span></div>
+              <div class="jdwx" style="z-index: 104" title="">节点文献</div>
+              <div class="tbywx" style="z-index: 105"><a id="rl6" name="rl" title="与本文同时被作为参考文献引用的文献，与本文共同作为进一步研究的基础">同被引文献</a><span id="rc6">(0)</span></div>
+              <div class="yzwx" style="z-index: 107"><a id="rl3" name="rl" title="引用本文的文献。本文研究工作的继续、应用、发展或评价">引证文献</a><span id="rc3">(0)</span></div>
+              <div class="rjyzwx" style="z-index: 108"><a id="rl4" name="rl" title="本文引证文献的引证文献。更进一步反映本文研究工作的继续、发展或评价">二级引证文献</a><span id="rc4">(0)</span></div>
+            </div>
+            <div class="time"><span onmouseover="TimeAxisMoveRight('AxisFrameDivLeft');" onmouseout="TimeAxisStop();" onclick="TimeAxisMoveFaster();" class="ArrowLeftDisable" title="显示前面的年份" id="ArrowLeft_AxisFrameDivLeft"></span><div class="year" id="AxisFrameDivLeft"></div><span onmouseover="TimeAxisMoveLeft('AxisFrameDivLeft');" onmouseout="TimeAxisStop();" onclick="TimeAxisMoveFaster()" class="ArrowRightEnable" title="显示后面的年份" id="ArrowRight_AxisFrameDivLeft"></span><div class="TimeMiddle" id="AxisFrameDivCurrent" style="height: 55px;"></div><span onmouseover="TimeAxisMoveRight('AxisFrameDivRight');" onmouseout="TimeAxisStop();" onclick="TimeAxisMoveFaster()" class="ArrowLeftDisable" title="显示前面的年份" id="ArrowLeft_AxisFrameDivRight"></span><div class="year" id="AxisFrameDivRight"></div><span onmouseover="TimeAxisMoveLeft('AxisFrameDivRight');" onmouseout="TimeAxisStop();" onclick="TimeAxisMoveFaster()" class="ArrowRightEnable" title="显示后面的年份" id="ArrowRight_AxisFrameDivRight"></span><span style="display: none; visibility: hidden;" class="ArrowLeftEnable" alt=""></span><div class="clear"></div>
+            </div>
+          </div>
+          <div>
+            <div id="NodeValueDiv1" class="TimeHide" onmouseout="HideNodeValueDiv();" onmouseover="window.clearTimeout(window.timeout_NodeValueDiv);">
+              <ul>
+                <li><a id="NodeValueDiv1ReferType1Link" onclick="ChangeReferType('1');" title="反映本文研究工作的背景和依据">参考文献</a><span id="NodeValueDiv1ReferType1Level1"></span></li>
+                <li><a id="NodeValueDiv1ReferType2Link" onclick="ChangeReferType('2');" title="本文参考文献的参考文献。进一步反映本文研究工作的背景和依据">二级参考文献</a><span id="NodeValueDiv1ReferType2Level2"></span></li>
+              </ul>
+            </div>
+            <div id="NodeValueDiv2" class="TimeHide" onmouseout="HideNodeValueDiv();" onmouseover="window.clearTimeout(window.timeout_NodeValueDiv);">
+              <ul>
+                <li><a id="NodeValueDiv2ReferType4Link" onclick="ChangeReferType('3');" title="引用本文的文献。本文研究工作的继续、应用、发展或评价">引证文献</a><span id="NodeValueDiv2ReferType4Level1"></span></li>
+                <li><a id="NodeValueDiv2ReferType16Link" onclick="ChangeReferType('4');" title="本文引证文献的引证文献。更进一步反映本文研究工作的继续、发展或评价">二级引证文献</a><span id="NodeValueDiv2ReferType16Level2"></span></li>
+              </ul>
+            </div>
+            <div id="NodeValueDiv3" class="TimeHide" onmouseout="HideNodeValueDiv();" onmouseover="window.clearTimeout(window.timeout_NodeValueDiv);">
+              <ul>
+                <li><a id="NodeValueDiv3ReferType1Link" onclick="ChangeReferType('1');" title="反映本文研究工作的背景和依据">参考文献</a><span id="NodeValueDiv3ReferType1Level1"></span></li>
+                <li><a id="NodeValueDiv3ReferType2Link" onclick="ChangeReferType('2');" title="本文参考文献的参考文献。进一步反映本文研究工作的背景和依据">二级参考文献</a><span id="NodeValueDiv3ReferType2Level2"></span></li>
+                <li><a id="NodeValueDiv3ReferType4Link" onclick="ChangeReferType('3');" title="引用本文的文献。本文研究工作的继续、应用、发展或评价">引证文献</a><span id="NodeValueDiv3ReferType4Level1"></span></li>
+                <li><a id="NodeValueDiv3ReferType16Link" onclick="ChangeReferType('4');" title="本文引证文献的引证文献。更进一步反映本文研究工作的继续、发展或评价">二级引证文献</a><span id="NodeValueDiv3ReferType16Level2"></span></li>
+              </ul>
+            </div>
+          </div>
+        </div><script type="text/javascript">       
+        SetRefChartDataEx('CMFD','2010182639.nh','CMFD0911','2010');
+      </script><iframe id="frame1" name="frame1" scrolling="no" height="0" frameborder="no" width="100%"></iframe><script type="text/javascript">
+              RegisterFrame('frame2','CMFD','frame/list.aspx?filename=2010182639.nh&dbcode=CMFD&dbname=CMFD0911&reftype=7');
+            
+              RegisterFrame('frame3','CMFD','frame/list.aspx?filename=2010182639.nh&dbcode=CMFD&dbname=CMFD0911&reftype=8');
+            
+            RegisterFrame('frame6','CMFD','frame/list.aspx?filename=2010182639.nh&dbcode=CMFD&dbname=CMFD0911&reftype=12');
+                        
+              RegisterFrame('frame5','CMFD','frame/list.aspx?filename=2010182639.nh&dbcode=CMFD&dbname=CMFD0911&reftype=10');             
+                          
+              RegisterFrame('frame4','CMFD','frame/list.aspx?filename=2010182639.nh&dbcode=CMFD&dbname=CMFD0911&cat=TP393.18&reftype=9');
+            </script></div>
+      <div id="usersee_his" class="wx_jsframe_jiao" style="display:none"><strong>浏览历史：</strong></div>
+      <div id="usersee_hiscontent" style="width:185px;height:auto;float:right"></div>
+      <div id="userdown_his" class="wx_jsframe_jiao" style="display:none"><strong>下载历史：</strong></div>
+      <div id="userdowmn_hiscontent" style="width:185px;height:auto;float:right"></div>
+      <div id="ad">
+        <iframe id="rightad" width="185px" height="700px" scrolling="no" frameborder="0" style="display:none"></iframe>
+      </div>
+      <div class="clear"></div>
+    </div><script type="text/javascript">
+          newsetCookie('UserSeesKcms','');
+          newhisresult_ll();
+          BindOnClick_DownLoad();
+          newhisresult_down();
+          try{ GetImgPath();}catch(err){}
+          RegAd('headad','r002','智能DNS|NetFlow|Perl|MySql|','','I139','校园智能DNS系统的构建和对DNS查询的统计分析');
+          RegAd('rightad','r005','智能DNS|NetFlow|Perl|MySql|','','I139','校园智能DNS系统的构建和对DNS查询的统计分析');
+        </script><div id="footer"><span></span><a class="GAleft" href="http://www.hd315.gov.cn/beian/view.asp?bianhao=010202005012100021" target="_blank"></a><a class="GAright" href="http://www.hd315.gov.cn/beian/view.asp?bianhao=010202005012100021" target="_blank"></a><p>
+                    京ICP证040431号
+                    <a href="http://www.cnki.net/images/006.jpg">互联网出版许可证 新出网证(京)字008号</a><br>
+                        京公网安备 11010802014875 号
+                        <br>
+                            © 2014中国知网(cnki) 《中国学术期刊(光盘版)》电子杂志社有限公司
+                            <br>
+                                服务热线：400-810-9888 订卡热线：400-819-9993
+                                <br>
+                                    在线咨询：<a href="http://help.cnki.net" target="_blank">http://help.cnki.net</a> 客服中心：<a href="http://service.cnki.net/" target="_blank">http://service.cnki.net/</a> 电子邮件：<a href="mailto:help@cnki.net" target="_blank">help@cnki.net</a></p>
+    </div><script type="text/javascript" src="http://search.cnki.net/krs/Scripts/Recommend.js"></script><script type="text/javascript" src="http://piccache.cnki.net/kcms/detail/js/klib.js&#xA;          "></script><script type="text/javascript" src="http://piccache.cnki.net/kcms/detail/js/Timeaxis.js&#xA;          "></script><script>
+          SetDownLoadFlag('1');
+          GetShareWeibosRight('http://piccache.cnki.net/kcms/detail/');
+          </script></body>
+</html>

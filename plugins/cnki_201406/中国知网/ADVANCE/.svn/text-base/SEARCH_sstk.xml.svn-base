@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root datatable="article_info" textcode="UTF-8">
+
+<datacheck>
+
+<url>
+
+<item findertype="result" finder="regex" para="(CMSF)"/>
+
+</url>
+
+<html>
+
+</html>
+
+</datacheck>
+
+
+
+ 
+
+
+<datalist>
+<item para="./body" finder="xpath" findertype="result"/>
+</datalist>
+
+<dataitem step="1">
+ 
+</dataitem>
+
+<url>
+
+
+<!--主题-->
+<key>
+<item findertype="result" finder="regex" para="TXT_1_VALUE1=([^&amp;]*)"/>
+</key>
+
+<!--包含主题-->
+<key>
+<item findertype="result" finder="regex" para="TXT_1_VALUE2=([^&amp;]*)"/>
+</key>
+
+<!--检索篇名-->
+<key>
+<item findertype="result" finder="regex" para="TXT_2_VALUE1=([^&amp;]*)"/>
+</key>
+
+<!--检索篇名2-->
+<key>
+<item findertype="result" finder="regex" para="TXT_2_VALUE2=([^&amp;]*)"/>
+</key>
+<!--检索关键词-->
+<key>
+<item findertype="result" finder="regex" para="TXT_3_VALUE1=([^&amp;]*)"/>
+</key>
+
+<!--检索关键词-->
+<key>
+<item findertype="result" finder="regex" para="TXT_3_VALUE2=([^&amp;]*)"/>
+</key>
+
+<!--检索作者-->
+<key>
+<item findertype="result" finder="regex" para="TXT_4_VALUE1=([^&amp;]*)"/>
+</key>
+
+<!--检索作者2-->
+<key>
+<item findertype="result" finder="regex" para="TXT_4_VALUE2=([^&amp;]*)"/>
+</key>
+<!--检索单位-->
+<key>
+<item findertype="result" finder="regex" para="TXT_5_VALUE1=([^&amp;]*)"/>
+</key>
+
+<!--检索单位2-->
+<key>
+<item findertype="result" finder="regex" para="TXT_5_VALUE2=([^&amp;]*)"/>
+</key>
+
+<!--检索刊名-->
+<key>
+<item findertype="result" finder="regex" para="TXT_6_VALUE1=([^&amp;]*)"/>
+</key>
+
+<!--检索刊名2-->
+<key>
+<item findertype="result" finder="regex" para="TXT_6_VALUE2=([^&amp;]*)"/>
+</key>
+
+<!--检索ISSN-->
+<key>
+<item findertype="result" finder="regex" para="TXT_7_VALUE1=([^&amp;]*)"/>
+</key>
+
+<!--检索ISSN-->
+<key>
+<item findertype="result" finder="regex" para="TXT_7_VALUE2=([^&amp;]*)"/>
+</key>
+<!--时间起-->
+<key>
+<item findertype="result" finder="regex" para="YEAR_FROM=([^&amp;]*)"/>
+</key>
+<!--时末-->
+<key>
+<item findertype="result" finder="regex" para="YEAR_TO=([^&amp;]*)"/>
+</key>
+<!--指定其-->
+<key>
+<item findertype="result" finder="regex" para="ISSUE_1_VALUE1=([^&amp;]*)"/>
+</key>
+<!--来源期刊-->
+<key>
+<item findertype="result" finder="regex" para="MAGAZINE_VALUE1=([^&amp;]*)"/>
+</key>
+<!--学位单位-->
+<key>
+<item findertype="result" finder="regex" para="DEGREEDANWEI_VALUE1=([^&amp;]*)"/>
+</key>
+<!--基金-->
+<key>
+<item findertype="result" finder="regex" para="BASE_VALUE1=([^&amp;]*)"/>
+</key>
+<!--作者-->
+<key>
+<item findertype="result" finder="regex" para="AU_1_VALUE1=([^&amp;]*)"/>
+</key>
+<!--作者单位-->
+<key>
+<item findertype="result" finder="regex" para="AU_1_VALUE2=([^&amp;]*)"/>
+</key>
+
+<!--专业检索-->
+<key>
+<item findertype="result" finder="regex" para="EXPERTVALUE=([^&amp;]*)"/>
+</key>
+<!--第一作者姓名-->
+<key>
+<item findertype="result" finder="regex" para="AU_2_VALUE1=([^&amp;]*)"/>
+</key>
+<!--作者单位-->
+<key>
+<item findertype="result" finder="regex" para="DANWEI_1_VALUE1=([^&amp;]*)"/>
+</key>
+<!--句子检索-->
+<key>
+<item findertype="result" finder="regex" para="SEN_1_VALUE1=([^&amp;]*)"/>
+</key>
+<!--句子检索-->
+<key>
+<item findertype="result" finder="regex" para="SEN_1_VALUE2=([^&amp;]*)"/>
+</key>
+<!--论文级别-->
+<key>
+<item findertype="result" finder="regex" para="THESISLEVEL=([^&amp;]*)"/>
+</key>
+
+
+</url>
+
+
+
+<all>
+
+<TYPE step="0">
+<item para="./" finder="xpath"/>
+<item findertype="result" finder="constant" para="search"/>
+</TYPE>
+
+
+<database_name>
+<item para="./" finder="xpath"/>
+<item findertype="result" finder="constant" para="中国优秀硕士学位论文全文数据库_特刊"/>
+</database_name>
+	
+
+
+
+
+
+</all>
+
+
+<header>
+
+<session_id key="Cookie">
+<item findertype="result" finder="regex" para=".*SessionId=([^;]*);.*"/>
+</session_id>
+
+
+
+
+</header>
+</root>
